@@ -1,0 +1,1247 @@
+/* ==========================================================================
+   NeuroPulse HE — Mid-Fidelity Prototype Stylesheet
+   Designed for: iPhone 17 Pro Max (430 × 932 px viewport)
+   HCI Principles: Don Norman (Visibility, Feedback, Constraints, Consistency, Affordance)
+   Accessibility: Neurodiversity (Sensory reduction, dyslexia-friendly spacing, high contrast)
+   ========================================================================== */
+
+:root {
+  /* Color Palette — Mid-Fi Professional Slate (Default) */
+  --bg-workspace: #0F172A;
+  --bg-device-bezel: #1E293B;
+  --bg-device-screen: #F8FAFC;
+  --bg-card: #FFFFFF;
+  --bg-card-subtle: #F1F5F9;
+  --border-color: #CBD5E1;
+  --border-strong: #94A3B8;
+
+  --text-primary: #0F172A;
+  --text-secondary: #475569;
+  --text-muted: #64748B;
+  --text-inverted: #FFFFFF;
+
+  --accent-primary: #0284C7;       /* Calm Sky Blue */
+  --accent-primary-hover: #0369A1;
+  --accent-light: #E0F2FE;
+  --accent-success: #16A34A;
+  --accent-warning: #D97706;
+  --accent-danger: #DC2626;
+
+  /* Typography */
+  --font-family-base: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --letter-spacing-base: -0.01em;
+  --line-height-base: 1.45;
+
+  /* Dimensions — iPhone 17 Pro Max */
+  --device-width: 430px;
+  --device-height: 932px;
+  --device-radius: 54px;
+  --dynamic-island-w: 124px;
+  --dynamic-island-h: 36px;
+
+  /* Norman Principles Highlight Overlays */
+  --highlight-principle-color: #F59E0B;
+}
+
+/* Neuro-Adaptive Theme: Soft Sage (Low Sensory Strain) */
+body.theme-soft-sage {
+  --bg-device-screen: #F2F7F4;
+  --bg-card: #FFFFFF;
+  --bg-card-subtle: #E8F1EC;
+  --border-color: #C3D7CD;
+  --text-primary: #1B382B;
+  --text-secondary: #3B5E4F;
+  --accent-primary: #2D6A4F;
+  --accent-light: #D8F3DC;
+}
+
+/* Neuro-Adaptive Theme: Warm Amber (Anti-Blue Light) */
+body.theme-warm-amber {
+  --bg-device-screen: #FAF6EE;
+  --bg-card: #FFFDF9;
+  --bg-card-subtle: #F2EADB;
+  --border-color: #E2D4BC;
+  --text-primary: #382D1D;
+  --text-secondary: #5C4B33;
+  --accent-primary: #B45309;
+  --accent-light: #FEF3C7;
+}
+
+/* Neuro-Adaptive Theme: OLED Dark Charcoal (Photophobia / High Contrast) */
+body.theme-dark-focus {
+  --bg-device-screen: #121417;
+  --bg-card: #1C2026;
+  --bg-card-subtle: #272C35;
+  --border-color: #38414E;
+  --border-strong: #4F5B6D;
+  --text-primary: #F1F5F9;
+  --text-secondary: #94A3B8;
+  --text-muted: #64748B;
+  --accent-primary: #38BDF8;
+  --accent-light: #0C4A6E;
+}
+
+/* Typography Mode: Dyslexia Support */
+body.font-dyslexic {
+  --font-family-base: 'Lexend', sans-serif;
+  --letter-spacing-base: 0.05em;
+  --line-height-base: 1.7;
+}
+
+body.font-dyslexic h1,
+body.font-dyslexic h2,
+body.font-dyslexic h3,
+body.font-dyslexic h4,
+body.font-dyslexic h5,
+body.font-dyslexic p,
+body.font-dyslexic span {
+  letter-spacing: 0.04em !important;
+  word-spacing: 0.08em !important;
+}
+
+/* Clutter Shield Mode (Reduced Visual Stimulation) */
+body.mode-clutter-shield .cognitive-sub,
+body.mode-clutter-shield .focus-hero-meta,
+body.mode-clutter-shield .cw-deadline,
+body.mode-clutter-shield .hint-caption,
+body.mode-clutter-shield .sensory-note-banner {
+  display: none !important;
+}
+
+/* ==========================================================================
+   Base Layout & Examiner Workspace
+   ========================================================================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-workspace);
+  color: var(--text-primary);
+  font-family: var(--font-family-base);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+  overflow-x: hidden;
+}
+
+.prototype-workspace {
+  display: flex;
+  gap: 36px;
+  max-width: 1300px;
+  width: 100%;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+/* ==========================================================================
+   Examiner Sidebar (Context & HCI Assessment Guidance)
+   ========================================================================== */
+.examiner-sidebar {
+  flex: 0 0 380px;
+  background: #1E293B;
+  border: 1px solid #334155;
+  border-radius: 20px;
+  padding: 24px;
+  color: #E2E8F0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.sidebar-header .badge-module {
+  background: #0284C7;
+  color: #FFFFFF;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  padding: 4px 10px;
+  border-radius: 100px;
+  display: inline-block;
+  margin-bottom: 8px;
+}
+
+.sidebar-header h2 {
+  font-size: 22px;
+  color: #FFFFFF;
+  font-weight: 700;
+}
+
+.sidebar-header .subtitle {
+  font-size: 13px;
+  color: #94A3B8;
+  margin-top: 4px;
+  line-height: 1.4;
+}
+
+.sidebar-card {
+  background: #0F172A;
+  border: 1px solid #334155;
+  border-radius: 14px;
+  padding: 16px;
+}
+
+.sidebar-card h3 {
+  font-size: 14px;
+  color: #38BDF8;
+  font-weight: 600;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.journey-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.journey-list li {
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: #1E293B;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.journey-list li:hover {
+  background: #273549;
+  border-color: #38BDF8;
+}
+
+.journey-list li.active-step {
+  border-color: #0284C7;
+  background: rgba(2, 132, 199, 0.2);
+}
+
+.journey-list li strong {
+  display: block;
+  font-size: 13px;
+  color: #F8FAFC;
+}
+
+.journey-list li span {
+  font-size: 11px;
+  color: #94A3B8;
+}
+
+.help-text {
+  font-size: 12px;
+  color: #94A3B8;
+  margin-bottom: 12px;
+  line-height: 1.35;
+}
+
+.principles-button-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+.btn-principle {
+  background: #1E293B;
+  color: #F8FAFC;
+  border: 1px solid #475569;
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.2s ease;
+}
+
+.btn-principle:hover {
+  background: #334155;
+  border-color: #F59E0B;
+}
+
+.btn-principle.active {
+  background: #F59E0B;
+  color: #000000;
+  border-color: #D97706;
+  font-weight: 700;
+}
+
+.principle-box {
+  margin-top: 12px;
+  padding: 10px;
+  background: #1E293B;
+  border-left: 3px solid #F59E0B;
+  border-radius: 6px;
+  font-size: 12px;
+  line-height: 1.4;
+  color: #E2E8F0;
+  min-height: 54px;
+}
+
+.spec-note {
+  border-color: #1E3A8A;
+  background: rgba(30, 58, 138, 0.2);
+  color: #93C5FD;
+}
+
+/* ==========================================================================
+   iPhone 17 Pro Max Physical Mockup Bezel
+   ========================================================================== */
+.device-stage {
+  flex: 0 0 var(--device-width);
+  display: flex;
+  justify-content: center;
+}
+
+.iphone-bezel {
+  width: var(--device-width);
+  height: var(--device-height);
+  background: var(--bg-device-screen);
+  border-radius: var(--device-radius);
+  border: 12px solid #282C34; /* Dark Titanium Bezel */
+  box-shadow: 
+    0 0 0 2px #4B5563,
+    0 25px 60px -15px rgba(0, 0, 0, 0.7),
+    0 0 20px rgba(2, 132, 199, 0.15);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  user-select: none;
+}
+
+/* Dynamic Island */
+.dynamic-island {
+  position: absolute;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: var(--dynamic-island-w);
+  height: var(--dynamic-island-h);
+  background: #000000;
+  border-radius: 20px;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 14px;
+}
+
+.camera-lens {
+  width: 12px;
+  height: 12px;
+  background: #111827;
+  border-radius: 50%;
+  border: 1px solid #1F2937;
+}
+
+.sensor-indicator {
+  width: 10px;
+  height: 10px;
+  background: #0B1320;
+  border-radius: 50%;
+}
+
+/* Status Bar */
+.status-bar {
+  height: 52px;
+  padding: 16px 28px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-primary);
+  z-index: 90;
+}
+
+.status-icons {
+  display: flex;
+  gap: 6px;
+  font-size: 11px;
+}
+
+/* ==========================================================================
+   Screen Viewport & Transitions
+   ========================================================================== */
+.screen-viewport {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 12px 20px 80px; /* Space for bottom tab bar */
+  position: relative;
+  scrollbar-width: thin;
+}
+
+.screen {
+  display: none;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.screen.active {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Screen Headers */
+.screen-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.greeting-tag {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.screen-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: var(--letter-spacing-base);
+}
+
+.screen-title-sub {
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: var(--letter-spacing-base);
+}
+
+.btn-icon-profile {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 18px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+.btn-back {
+  background: none;
+  border: none;
+  color: var(--accent-primary);
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 6px 0;
+}
+
+.spacer-right {
+  width: 40px;
+}
+
+/* ==========================================================================
+   Screen 1: Home / Dashboard Components
+   ========================================================================== */
+.cognitive-banner {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 14px 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+}
+
+.cognitive-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--accent-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.cognitive-sub {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-top: 2px;
+}
+
+.mood-selectors {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.mood-chip {
+  background: var(--bg-card-subtle);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 8px 6px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  text-align: center;
+}
+
+.mood-chip:hover {
+  border-color: var(--accent-primary);
+}
+
+.mood-chip.active {
+  background: var(--accent-light);
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+}
+
+/* Hero Focus Target Card */
+.focus-hero-card {
+  background: var(--bg-card);
+  border: 2px solid var(--accent-primary);
+  border-radius: 18px;
+  padding: 18px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.08);
+  position: relative;
+}
+
+.card-badge {
+  display: inline-block;
+  background: var(--accent-primary);
+  color: var(--text-inverted);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  padding: 4px 8px;
+  border-radius: 6px;
+  margin-bottom: 8px;
+}
+
+.focus-hero-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.35;
+  margin-bottom: 6px;
+}
+
+.focus-hero-meta {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-bottom: 14px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-primary-hero {
+  flex: 1.2;
+  background: var(--accent-primary);
+  color: var(--text-inverted);
+  border: none;
+  border-radius: 10px;
+  padding: 11px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.btn-primary-hero:hover {
+  background: var(--accent-primary-hover);
+}
+
+.btn-secondary-hero {
+  flex: 1;
+  background: var(--bg-card-subtle);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 11px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-secondary-hero:hover {
+  background: var(--border-color);
+}
+
+/* Coursework Modules */
+.section-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.section-title-row h3 {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.badge-count {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted);
+  background: var(--bg-card-subtle);
+  padding: 3px 8px;
+  border-radius: 12px;
+}
+
+.coursework-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.coursework-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  padding: 14px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
+}
+
+.coursework-card.active-card {
+  border-color: var(--border-strong);
+}
+
+.cw-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.cw-tag {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+.cw-hci {
+  background: #E0F2FE;
+  color: #0369A1;
+}
+
+.cw-ds {
+  background: #F3E8FF;
+  color: #7E22CE;
+}
+
+.cw-deadline {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.cw-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+}
+
+.progress-bar-container {
+  height: 6px;
+  background: var(--bg-card-subtle);
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: var(--accent-primary);
+  border-radius: 3px;
+}
+
+.cw-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cw-steps-left {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.btn-text-action {
+  background: none;
+  border: none;
+  color: var(--accent-primary);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* ==========================================================================
+   Screen 2: Task Breakdown Deconstructor
+   ========================================================================== */
+.breakdown-intro-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  padding: 14px;
+  margin-bottom: 16px;
+}
+
+.breakdown-tag {
+  font-size: 10px;
+  font-weight: 800;
+  color: var(--accent-primary);
+  letter-spacing: 0.05em;
+  margin-bottom: 4px;
+}
+
+.breakdown-intro-card h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+
+.breakdown-intro-card p {
+  font-size: 12px;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+.stepping-stones-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.stone-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: all 0.2s ease;
+}
+
+.stone-item.completed {
+  opacity: 0.65;
+  background: var(--bg-card-subtle);
+}
+
+.stone-item.completed h5 {
+  text-decoration: line-through;
+  color: var(--text-muted);
+}
+
+.stone-item.current-step {
+  border: 2px solid var(--accent-primary);
+  background: var(--bg-card);
+  box-shadow: 0 4px 10px rgba(2, 132, 199, 0.08);
+}
+
+.stone-checkbox {
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  border: 2px solid var(--border-strong);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.stone-item.completed .stone-checkbox {
+  background: var(--accent-success);
+  border-color: var(--accent-success);
+  color: white;
+}
+
+.stone-content {
+  flex: 1;
+}
+
+.stone-content h5 {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.35;
+  margin-bottom: 2px;
+}
+
+.stone-duration {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.btn-quick-play {
+  background: var(--accent-primary);
+  color: white;
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.btn-stone-menu {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 16px;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.add-task-box {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  padding: 12px;
+}
+
+.input-with-button {
+  display: flex;
+  gap: 8px;
+}
+
+.input-with-button input {
+  flex: 1;
+  background: var(--bg-card-subtle);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 12px;
+  color: var(--text-primary);
+  font-family: inherit;
+}
+
+.btn-decompose-magic {
+  background: var(--text-primary);
+  color: var(--text-inverted);
+  border: none;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.hint-caption {
+  display: block;
+  font-size: 10px;
+  color: var(--text-muted);
+  margin-top: 8px;
+}
+
+/* ==========================================================================
+   Screen 3: Time-Blindness Visual Focus Timer
+   ========================================================================== */
+.timer-target-banner {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.target-sub {
+  font-size: 10px;
+  font-weight: 800;
+  color: var(--accent-primary);
+  letter-spacing: 0.08em;
+}
+
+.timer-target-banner h4 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-top: 4px;
+}
+
+.timer-visual-container {
+  width: 240px;
+  height: 240px;
+  margin: 0 auto 24px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.timer-svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.timer-track {
+  fill: none;
+  stroke: var(--bg-card-subtle);
+  stroke-width: 14;
+}
+
+.timer-progress {
+  fill: none;
+  stroke: var(--accent-primary);
+  stroke-width: 14;
+  stroke-linecap: round;
+  stroke-dasharray: 628; /* 2 * PI * 100 */
+  stroke-dashoffset: 0;
+  transition: stroke-dashoffset 0.8s linear;
+}
+
+.timer-digits-container {
+  position: absolute;
+  text-align: center;
+}
+
+.timer-digits {
+  display: block;
+  font-size: 44px;
+  font-weight: 700;
+  color: var(--text-primary);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.03em;
+}
+
+.timer-status-caption {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.timer-presets {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.btn-preset {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 8px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.btn-preset.active {
+  background: var(--accent-primary);
+  color: white;
+  border-color: var(--accent-primary);
+}
+
+.timer-controls-row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.btn-ctrl-primary {
+  flex: 1.5;
+  background: var(--accent-primary);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 14px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.btn-ctrl-secondary {
+  flex: 1;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 14px 10px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-primary);
+  cursor: pointer;
+  text-align: center;
+}
+
+.sensory-note-banner {
+  background: var(--bg-card-subtle);
+  border-left: 3px solid var(--accent-primary);
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 11px;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+/* ==========================================================================
+   Screen 4: Neuro-Adaptive UI Settings
+   ========================================================================== */
+.settings-group {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.settings-group-header {
+  margin-bottom: 14px;
+}
+
+.settings-group-header h4 {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.settings-group-header p {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.setting-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-top: 1px solid var(--border-color);
+}
+
+.setting-item:first-of-type {
+  border-top: none;
+}
+
+.setting-text strong {
+  display: block;
+  font-size: 13px;
+  color: var(--text-primary);
+}
+
+.setting-text span {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+/* Toggle Switch */
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 44px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: var(--border-strong);
+  transition: .2s;
+  border-radius: 24px;
+}
+
+.toggle-slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: .2s;
+  border-radius: 50%;
+}
+
+.toggle-switch input:checked + .toggle-slider {
+  background-color: var(--accent-primary);
+}
+
+.toggle-switch input:checked + .toggle-slider:before {
+  transform: translateX(20px);
+}
+
+/* Palette Grid */
+.palette-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.palette-card {
+  background: var(--bg-card-subtle);
+  border: 2px solid transparent;
+  border-radius: 12px;
+  padding: 10px;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.palette-card.active {
+  border-color: var(--accent-primary);
+  background: var(--bg-card);
+}
+
+.swatch {
+  display: block;
+  width: 100%;
+  height: 18px;
+  border-radius: 6px;
+  margin-bottom: 6px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.swatch-neutral { background: #94A3B8; }
+.swatch-sage { background: #68A67D; }
+.swatch-amber { background: #D97706; }
+.swatch-dark { background: #1E293B; }
+
+.palette-card strong {
+  display: block;
+  font-size: 12px;
+  color: var(--text-primary);
+}
+
+.palette-card small {
+  font-size: 10px;
+  color: var(--text-muted);
+}
+
+/* ==========================================================================
+   Persistent Bottom Tab Bar
+   ========================================================================== */
+.bottom-tab-bar {
+  position: absolute;
+  bottom: 16px;
+  left: 0;
+  right: 0;
+  height: 64px;
+  background: var(--bg-card);
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0 16px;
+  z-index: 80;
+}
+
+.tab-item {
+  background: none;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  cursor: pointer;
+  padding: 6px 12px;
+  border-radius: 8px;
+  transition: all 0.15s ease;
+}
+
+.tab-icon {
+  font-size: 18px;
+  filter: grayscale(0.6);
+}
+
+.tab-label {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.tab-item.active .tab-icon {
+  filter: none;
+}
+
+.tab-item.active .tab-label {
+  color: var(--accent-primary);
+  font-weight: 700;
+}
+
+/* Home Indicator Bar */
+.home-indicator {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 140px;
+  height: 5px;
+  background: var(--text-primary);
+  border-radius: 10px;
+  opacity: 0.4;
+  z-index: 100;
+}
+
+/* ==========================================================================
+   HCI Norman's Principle Highlight Animation Overlays
+   ========================================================================== */
+.principle-highlighted {
+  position: relative !important;
+  outline: 3px dashed var(--highlight-principle-color) !important;
+  outline-offset: 3px !important;
+  animation: pulse-border 1.5s infinite alternate !important;
+  background-color: rgba(245, 158, 11, 0.08) !important;
+}
+
+@keyframes pulse-border {
+  from {
+    outline-color: #F59E0B;
+    box-shadow: 0 0 10px rgba(245, 158, 11, 0.4);
+  }
+  to {
+    outline-color: #EF4444;
+    box-shadow: 0 0 18px rgba(239, 68, 68, 0.6);
+  }
+}
+
+/* Toast Feedback */
+#toast-notification {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: #0F172A;
+  color: #F8FAFC;
+  border: 1px solid #334155;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 500;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 1000;
+}
+
+.toast-hidden {
+  opacity: 0;
+  transform: translateY(12px);
+  pointer-events: none;
+}

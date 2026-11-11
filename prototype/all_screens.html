@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NeuroPulse HE — Full 8-Screen Artboard Canvas (Figma-Ready)</title>
+  <link rel="stylesheet" href="ios-design-system.css">
+  <style>
+    body {
+      background-color: #07090E; /* Figma Studio Dark Canvas */
+      display: block;
+      padding: 40px 30px;
+      min-height: 100vh;
+      color: #FFFFFF;
+      overflow-x: auto;
+    }
+
+    .canvas-nav-bar {
+      max-width: 3800px;
+      margin: 0 auto 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 20px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .canvas-title-group h1 {
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: #F8FAFC;
+    }
+    .canvas-title-group p {
+      font-size: 14px;
+      color: #94A3B8;
+      margin-top: 4px;
+    }
+
+    .figma-badge-chip {
+      background: #1E293B;
+      border: 1px solid #334155;
+      padding: 8px 18px;
+      border-radius: 100px;
+      font-size: 13px;
+      color: #818CF8;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* 8 Artboards Row Container */
+    .artboard-horizontal-stream {
+      display: flex;
+      gap: 36px;
+      padding-bottom: 50px;
+      max-width: 3800px;
+      margin: 0 auto;
+    }
+
+    .artboard-cell {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
+    .artboard-label-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 6px;
+      font-size: 13px;
+      font-weight: 700;
+      color: #94A3B8;
+    }
+    .artboard-label-row a {
+      color: var(--ios-primary);
+      text-decoration: none;
+      font-size: 12px;
+    }
+
+    .artboard-preview-iframe {
+      width: 430px;
+      height: 932px;
+      border: none;
+      border-radius: 44px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(255, 255, 255, 0.1);
+      background: #F4F6F9;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Studio Header -->
+  <header class="canvas-nav-bar">
+    <div class="canvas-title-group">
+      <h1>NeuroPulse HE — Complete 8-Screen Native iOS Design System</h1>
+      <p>Apple Human Interface Guidelines · iPhone 17 Pro Max (430 × 932 px) · Authentic SF Symbols · Figma-Ready</p>
+    </div>
+    <div class="figma-badge-chip">
+      <span style="display:inline-block; width: 8px; height: 8px; border-radius: 50%; background: #34D399;"></span>
+      8 Full User Journey Artboards (Zero Device Bezels)
+    </div>
+  </header>
+
+  <!-- 8 Artboards Horizontal Stream -->
+  <main class="artboard-horizontal-stream">
+    
+    <!-- Screen 1: Today Dashboard -->
+    <div class="artboard-cell">
+      <div class="artboard-label-row">
+        <span>01_Today_Dashboard</span>
+        <a href="screen1_today.html" target="_blank">Fullscreen ↗</a>
+      </div>
+      <iframe src="screen1_today.html" class="artboard-preview-iframe" title="Screen 1 Today"></iframe>
+    </div>
+
+    <!-- Screen 2: Coursework Detail -->
+    <div class="artboard-cell">
+      <div class="artboard-label-row">
+        <span>02_Coursework_Detail</span>
+        <a href="screen2_course_detail.html" target="_blank">Fullscreen ↗</a>
+      </div>
+      <iframe src="screen2_course_detail.html" class="artboard-preview-iframe" title="Screen 2 Course Detail"></iframe>
+    </div>
+
+    <!-- Screen 3: Task Breakdown (Stepping Stones) -->
+    <div class="artboard-cell">
+      <div class="artboard-label-row">
+        <span>03_Task_Breakdown</span>
+        <a href="screen3_task_breakdown.html" target="_blank">Fullscreen ↗</a>
+      </div>
+      <iframe src="screen3_task_breakdown.html" class="artboard-preview-iframe" title="Screen 3 Task Breakdown"></iframe>
+    </div>
+
+    <!-- Screen 4: Single Micro-Action Detail -->
+    <div class="artboard-cell">
+      <div class="artboard-label-row">
+        <span>04_Micro_Action_Detail</span>
+        <a href="screen4_micro_action.html" target="_blank">Fullscreen ↗</a>
+      </div>
+      <iframe src="screen4_micro_action.html" class="artboard-preview-iframe" title="Screen 4 Micro Action"></iframe>
+    </div>
+
+    <!-- Screen 5: Active Visual Focus Timer -->
+    <div class="artboard-cell">
+      <div class="artboard-label-row">
+        <span>05_Visual_Focus_Timer</span>
+        <a href="screen5_timer_active.html" target="_blank">Fullscreen ↗</a>
+      </div>
+      <iframe src="screen5_timer_active.html" class="artboard-preview-iframe" title="Screen 5 Focus Timer"></iframe>
+    </div>
+
+    <!-- Screen 6: Accomplishment & Rest Interval -->
+    <div class="artboard-cell">
+      <div class="artboard-label-row">
+        <span>06_Accomplishment_Rest</span>
+        <a href="screen6_session_complete.html" target="_blank">Fullscreen ↗</a>
+      </div>
+      <iframe src="screen6_session_complete.html" class="artboard-preview-iframe" title="Screen 6 Accomplishment"></iframe>
+    </div>
+
+    <!-- Screen 7: Sensory Overload Shield Mode -->
+    <div class="artboard-cell">
+      <div class="artboard-label-row">
+        <span>07_Sensory_Shield_Mode</span>
+        <a href="screen7_overwhelm_mode.html" target="_blank">Fullscreen ↗</a>
+      </div>
+      <iframe src="screen7_overwhelm_mode.html" class="artboard-preview-iframe" title="Screen 7 Sensory Shield"></iframe>
+    </div>
+
+    <!-- Screen 8: Sensory & Typography Settings -->
+    <div class="artboard-cell">
+      <div class="artboard-label-row">
+        <span>08_Sensory_Settings</span>
+        <a href="screen8_sensory_settings.html" target="_blank">Fullscreen ↗</a>
+      </div>
+      <iframe src="screen8_sensory_settings.html" class="artboard-preview-iframe" title="Screen 8 Sensory Settings"></iframe>
+    </div>
+
+  </main>
+
+</body>
+</html>

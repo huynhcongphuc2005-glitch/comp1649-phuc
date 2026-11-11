@@ -1,0 +1,392 @@
+/* ==========================================================================
+   Apple iOS 18 Design System — NeuroPulse HE
+   High-Fidelity Modern Mobile Palette + Pixel-Perfect SF Symbols
+   Viewport: iPhone 17 Pro Max (430 × 932 px) — Zero Hardware Bezel
+   ========================================================================== */
+
+:root {
+  /* ========================================================================
+     1. Rich Modern iOS Color Palette (Neuro-Ergonomic & High Contrast)
+     ======================================================================== */
+  /* Canvas & Card Surfaces */
+  --ios-canvas: #F4F6F9;                   /* Soft warm off-white canvas (low eye-strain) */
+  --ios-card-bg: #FFFFFF;                 /* Pure crisp white card surface */
+  --ios-card-subtle: #F8FAFC;             /* Light surface tint */
+  --ios-card-highlight: #F0F4FF;          /* Active hero card tint */
+  
+  /* Text & Labels (WCAG AAA Contrast) */
+  --ios-text-headline: #0F172A;           /* Deep Midnight Black */
+  --ios-text-body: #334155;               /* Charcoal Slate */
+  --ios-text-secondary: #64748B;         /* Neutral Muted Gray */
+  --ios-text-tertiary: #94A3B8;          /* Light Muted Gray */
+  --ios-text-inverted: #FFFFFF;
+
+  /* Primary Brand Tints: Royal Indigo & Electric Blue */
+  --ios-primary: #4F46E5;                 /* Modern Deep Indigo */
+  --ios-primary-hover: #4338CA;
+  --ios-primary-light: #EEF2FF;           /* Light Indigo Fill */
+  --ios-primary-border: #C7D2FE;
+  
+  --ios-accent-cyan: #0284C7;             /* Focus Cyan */
+  --ios-accent-cyan-light: #E0F2FE;
+
+  /* Semantic State Colors */
+  --ios-emerald: #059669;                 /* Accomplished Green */
+  --ios-emerald-light: #D1FAE5;
+  --ios-emerald-border: #A7F3D0;
+
+  --ios-amber: #D97706;                   /* Warm Amber (Energy alert) */
+  --ios-amber-light: #FEF3C7;
+  --ios-amber-border: #FDE68A;
+
+  --ios-rose: #E11D48;                    /* Overwhelm Alert Coral */
+  --ios-rose-light: #FFE4E6;
+
+  --ios-purple: #7C3AED;                  /* Coursework Tag Purple */
+  --ios-purple-light: #F3E8FF;
+
+  /* Borders & Dividers */
+  --ios-border-card: rgba(15, 23, 42, 0.08);
+  --ios-border-focus: #4F46E5;
+  --ios-separator: rgba(15, 23, 42, 0.06);
+
+  /* Shadows (Natural iOS Multi-Layer Depth) */
+  --ios-shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.04);
+  --ios-shadow-card: 0 4px 16px -2px rgba(15, 23, 42, 0.05), 0 2px 6px -1px rgba(15, 23, 42, 0.03);
+  --ios-shadow-elevated: 0 12px 28px -4px rgba(79, 70, 229, 0.16);
+
+  /* Radii */
+  --ios-radius-lg: 20px;
+  --ios-radius-md: 14px;
+  --ios-radius-sm: 8px;
+  --ios-radius-pill: 9999px;
+
+  /* Typography */
+  --ios-font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Plus Jakarta Sans", system-ui, sans-serif;
+
+  /* Standard Dimensions */
+  --screen-width: 430px;
+  --screen-height: 932px;
+}
+
+/* ==========================================================================
+   2. Base Reset & Artboard Layout
+   ========================================================================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: #090B10; /* Dark neutral studio canvas for inspecting mobile screens */
+  font-family: var(--ios-font-family);
+  color: var(--ios-text-headline);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+}
+
+/* Standalone iPhone 17 Pro Max Screen Artboard (ZERO PHONE BEZEL) */
+.ios-screen-canvas {
+  width: var(--screen-width);
+  height: var(--screen-height);
+  background-color: var(--ios-canvas);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  border-radius: 44px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+/* ==========================================================================
+   3. Native iOS Status Bar (Clean 52px Header)
+   ========================================================================== */
+.ios-status-bar {
+  height: 52px;
+  padding: 16px 28px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--ios-text-headline);
+  flex-shrink: 0;
+  z-index: 50;
+}
+
+.status-time {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+
+.status-icons {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--ios-text-headline);
+}
+
+/* ==========================================================================
+   4. Native iOS Navigation Bar & Large Titles
+   ========================================================================== */
+.ios-navigation-bar {
+  height: 44px;
+  padding: 0 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.ios-back-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--ios-primary);
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 6px 0;
+}
+
+.ios-back-action:active {
+  opacity: 0.6;
+}
+
+.ios-bar-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--ios-text-headline);
+  letter-spacing: -0.015em;
+}
+
+.ios-bar-button {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--ios-card-bg);
+  border: 1px solid var(--ios-border-card);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ios-primary);
+  box-shadow: var(--ios-shadow-sm);
+  cursor: pointer;
+}
+
+.ios-large-header {
+  padding: 6px 20px 14px;
+}
+
+.ios-date-badge {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ios-primary);
+  margin-bottom: 3px;
+}
+
+.ios-main-title {
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  color: var(--ios-text-headline);
+  line-height: 1.15;
+}
+
+/* ==========================================================================
+   5. Scrollable Screen Viewport
+   ========================================================================== */
+.ios-content-viewport {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 0 20px 98px; /* space for bottom tab bar */
+  scrollbar-width: none;
+}
+
+.ios-content-viewport::-webkit-scrollbar {
+  display: none;
+}
+
+/* ==========================================================================
+   6. Inset Cards & Color Chips
+   ========================================================================== */
+.ios-card {
+  background: var(--ios-card-bg);
+  border: 1px solid var(--ios-border-card);
+  border-radius: var(--ios-radius-lg);
+  padding: 18px;
+  box-shadow: var(--ios-shadow-card);
+  margin-bottom: 18px;
+}
+
+.ios-section-caption {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--ios-text-secondary);
+  margin: 18px 4px 8px;
+}
+
+/* iOS Segmented Control */
+.ios-segmented-picker {
+  background: rgba(148, 163, 184, 0.16);
+  border-radius: 12px;
+  padding: 3px;
+  display: flex;
+  gap: 3px;
+  margin-bottom: 16px;
+}
+
+.segment-btn {
+  flex: 1;
+  padding: 9px 4px;
+  font-size: 13px;
+  font-weight: 700;
+  text-align: center;
+  color: var(--ios-text-body);
+  border-radius: 9px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  user-select: none;
+}
+
+.segment-btn.active-segment {
+  background: #FFFFFF;
+  color: var(--ios-primary);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+/* Primary Action Buttons */
+.ios-btn-primary {
+  background: linear-gradient(135deg, var(--ios-primary) 0%, #3730A3 100%);
+  color: #FFFFFF;
+  font-size: 15px;
+  font-weight: 700;
+  border: none;
+  border-radius: var(--ios-radius-md);
+  padding: 14px 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  cursor: pointer;
+  box-shadow: var(--ios-shadow-elevated);
+  text-decoration: none;
+  transition: transform 0.1s ease, opacity 0.15s ease;
+}
+
+.ios-btn-primary:active {
+  transform: scale(0.98);
+  opacity: 0.9;
+}
+
+.ios-btn-secondary {
+  background: var(--ios-card-subtle);
+  border: 1px solid var(--ios-border-card);
+  color: var(--ios-text-headline);
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: var(--ios-radius-md);
+  padding: 13px 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.15s ease;
+}
+
+.ios-btn-secondary:active {
+  background: #E2E8F0;
+}
+
+/* ==========================================================================
+   7. Re-Engineered Apple SF Symbols Bottom Tab Bar
+   ========================================================================== */
+.ios-bottom-tabbar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 86px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border-top: 1px solid var(--ios-separator);
+  display: flex;
+  justify-content: space-around;
+  padding-top: 8px;
+  z-index: 100;
+}
+
+.tab-nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  text-decoration: none;
+  color: var(--ios-text-tertiary);
+  width: 72px;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.15s ease;
+}
+
+.tab-nav-icon {
+  width: 25px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tab-nav-icon svg {
+  width: 22px;
+  height: 22px;
+  fill: currentColor;
+}
+
+.tab-nav-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+/* Active Tab Styling with Modern Indigo Tint */
+.tab-nav-item.active-tab {
+  color: var(--ios-primary);
+}
+
+.tab-nav-item.active-tab .tab-nav-label {
+  font-weight: 800;
+}
+
+.tab-nav-item.active-tab .tab-nav-icon svg {
+  filter: drop-shadow(0 2px 6px rgba(79, 70, 229, 0.3));
+}
+
+/* Home Indicator Bar */
+.ios-home-indicator-bar {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 140px;
+  height: 5px;
+  background-color: var(--ios-text-headline);
+  border-radius: 100px;
+  opacity: 0.8;
+}

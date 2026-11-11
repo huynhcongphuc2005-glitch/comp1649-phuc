@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Screen 1: Today — NeuroPulse HE (iPhone 17 Pro Max 430×932)</title>
+  <link rel="stylesheet" href="ios-design-system.css">
+  <style>
+    /* Inset Grouped Coursework List */
+    .ios-list-group {
+      background: var(--ios-bg-card);
+      border-radius: var(--ios-radius-card);
+      overflow: hidden;
+      box-shadow: var(--ios-card-shadow);
+      margin-bottom: 24px;
+    }
+    .ios-list-item {
+      padding: 14px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      text-decoration: none;
+      color: inherit;
+      border-bottom: 0.5px solid var(--ios-separator);
+      transition: background 0.15s ease;
+    }
+    .ios-list-item:last-child {
+      border-bottom: none;
+    }
+    .ios-list-item:active {
+      background: var(--ios-bg-card-secondary);
+    }
+    .item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .module-badge {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--ios-indigo);
+      background: var(--ios-indigo-light);
+      padding: 3px 8px;
+      border-radius: 6px;
+      letter-spacing: 0.02em;
+    }
+    .due-date {
+      font-size: 13px;
+      color: var(--ios-label-secondary);
+    }
+    .item-title-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .item-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--ios-label-primary);
+      letter-spacing: -0.015em;
+    }
+    .ios-progress-track {
+      height: 5px;
+      background: var(--ios-bg-tertiary);
+      border-radius: 3px;
+      overflow: hidden;
+      margin-top: 4px;
+    }
+    .ios-progress-fill {
+      height: 100%;
+      background: var(--ios-blue);
+      border-radius: 3px;
+    }
+    .item-footer-meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      color: var(--ios-label-secondary);
+      margin-top: 2px;
+    }
+
+    /* Single Focus Hero Card */
+    .hero-card {
+      background: var(--ios-bg-card);
+      border-radius: var(--ios-radius-card);
+      padding: 18px;
+      box-shadow: var(--ios-card-shadow);
+      margin-bottom: 20px;
+      border: 1px solid rgba(0, 122, 255, 0.25);
+    }
+    .hero-sublabel {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--ios-blue);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .hero-heading {
+      font-size: 19px;
+      font-weight: 700;
+      color: var(--ios-label-primary);
+      line-height: 1.3;
+      letter-spacing: -0.02em;
+      margin-bottom: 4px;
+    }
+    .hero-context {
+      font-size: 13px;
+      color: var(--ios-label-secondary);
+      margin-bottom: 16px;
+    }
+    .hero-btn-row {
+      display: flex;
+      gap: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- STANDALONE IOS ARTBOARD (Exact 430 × 932 px without phone hardware bezel) -->
+  <main class="ios-artboard">
+    
+    <!-- iOS 18 Status Bar (SF Symbols Vector Graphics) -->
+    <header class="ios-status-bar">
+      <span class="status-left">9:41</span>
+      <div class="status-right">
+        <!-- Cellular Signal -->
+        <svg class="svg-icon" width="18" height="12" viewBox="0 0 18 12">
+          <rect x="0.5" y="8.5" width="2.5" height="3.5" rx="0.5"/>
+          <rect x="4.5" y="6" width="2.5" height="6" rx="0.5"/>
+          <rect x="8.5" y="3.5" width="2.5" height="8.5" rx="0.5"/>
+          <rect x="12.5" y="0.5" width="2.5" height="11.5" rx="0.5"/>
+        </svg>
+        <!-- Wi-Fi -->
+        <svg class="svg-icon" width="16" height="12" viewBox="0 0 16 12">
+          <path d="M8 9.5C8.83 9.5 9.5 8.83 9.5 8C9.5 7.17 8.83 6.5 8 6.5C7.17 6.5 6.5 7.17 6.5 8C6.5 8.83 7.17 9.5 8 9.5ZM8 3.5C10.5 3.5 12.75 4.5 14.36 6.11L15.77 4.7C13.79 2.71 11.04 1.5 8 1.5C4.96 1.5 2.21 2.71 0.23 4.7L1.64 6.11C3.25 4.5 5.5 3.5 8 3.5ZM8 0C11.5 0 14.67 1.45 16.95 3.73L15.54 5.14C13.62 3.22 10.96 2 8 2C5.04 2 2.38 3.22 0.46 5.14L-0.95 3.73C1.33 1.45 4.5 0 8 0Z" transform="translate(0, 1)"/>
+        </svg>
+        <!-- Battery Icon with Fill -->
+        <svg class="svg-icon" width="25" height="12" viewBox="0 0 25 12">
+          <rect x="0.5" y="0.5" width="21" height="11" rx="3.5" fill="none" stroke="currentColor"/>
+          <rect x="2" y="2" width="18" height="8" rx="2" fill="currentColor"/>
+          <path d="M23 4C23.6 4.3 24 4.8 24 5.5V6.5C24 7.2 23.6 7.7 23 8V4Z" fill="currentColor"/>
+        </svg>
+      </div>
+    </header>
+
+    <!-- Top Navigation Bar -->
+    <div class="ios-nav-bar">
+      <span></span>
+      <a href="screen4_sensory.html" class="nav-action-icon" title="Sensory Settings">
+        <!-- SF Symbol: gearshape -->
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="3"/>
+          <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+        </svg>
+      </a>
+    </div>
+
+    <!-- iOS Large Title -->
+    <div class="ios-large-title-container">
+      <div class="ios-caption-subtitle">Wednesday, 11 November</div>
+      <h1 class="ios-large-title">Today</h1>
+    </div>
+
+    <!-- Scrollable Body Content -->
+    <div class="ios-scroll-body">
+      
+      <!-- Native iOS Segmented Control: Cognitive Energy Check -->
+      <div class="ios-segmented-control" role="tablist">
+        <div class="segment-item active-segment" role="tab" aria-selected="true">Focused</div>
+        <div class="segment-item" role="tab" aria-selected="false">Moderate</div>
+        <div class="segment-item" role="tab" aria-selected="false">Overwhelmed</div>
+      </div>
+
+      <!-- Single Point of Focus Hero Card -->
+      <div class="hero-card">
+        <div class="hero-sublabel">Next Immediate Action · 15 Min</div>
+        <h2 class="hero-heading">Search 3 ACM papers on ADHD UI Design</h2>
+        <p class="hero-context">COMP1649 Human-Computer Interaction</p>
+        <div class="hero-btn-row">
+          <a href="screen3_timer.html" class="ios-btn-primary" style="flex: 1.4;">
+            <!-- SF Symbol: play.fill -->
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+              <polygon points="5 3 19 12 5 21 5 3"/>
+            </svg>
+            Start Focus (15m)
+          </a>
+          <a href="screen2_breakdown.html" class="ios-btn-secondary" style="flex: 1;">
+            Subtasks (1/4)
+          </a>
+        </div>
+      </div>
+
+      <!-- Inset Grouped Section Header -->
+      <h3 class="ios-section-header">Active Coursework</h3>
+
+      <!-- Inset Grouped Coursework List -->
+      <div class="ios-list-group">
+        
+        <!-- Coursework Item 1 -->
+        <a href="screen2_breakdown.html" class="ios-list-item">
+          <div class="item-header">
+            <span class="module-badge">COMP1649</span>
+            <span class="due-date">Due in 14 days</span>
+          </div>
+          <div class="item-title-row">
+            <h4 class="item-title">Interactive Mid-Fi Prototype & Report</h4>
+            <!-- SF Symbol: chevron.right -->
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C7C7CC" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6"/>
+            </svg>
+          </div>
+          <div class="ios-progress-track">
+            <div class="ios-progress-fill" style="width: 45%;"></div>
+          </div>
+          <div class="item-footer-meta">
+            <span>Progress: 3 of 8 micro-tasks</span>
+            <span style="color: var(--ios-blue); font-weight: 600;">Deconstruct</span>
+          </div>
+        </a>
+
+        <!-- Coursework Item 2 -->
+        <a href="screen2_breakdown.html" class="ios-list-item">
+          <div class="item-header">
+            <span class="module-badge" style="color: var(--ios-teal); background: rgba(48, 176, 199, 0.12);">COMP1648</span>
+            <span class="due-date">Due in 24 days</span>
+          </div>
+          <div class="item-title-row">
+            <h4 class="item-title">Algorithm Complexity & Binary Trees</h4>
+            <!-- SF Symbol: chevron.right -->
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C7C7CC" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6"/>
+            </svg>
+          </div>
+          <div class="ios-progress-track">
+            <div class="ios-progress-fill" style="width: 15%; background: var(--ios-teal);"></div>
+          </div>
+          <div class="item-footer-meta">
+            <span>Progress: 1 of 6 micro-tasks</span>
+            <span style="color: var(--ios-blue); font-weight: 600;">View</span>
+          </div>
+        </a>
+
+      </div> <!-- /ios-list-group -->
+
+    </div> <!-- /ios-scroll-body -->
+
+    <!-- Native iOS 18 Tab Bar (84px Height with SF Symbols) -->
+    <nav class="ios-tab-bar">
+      <!-- Tab 1: Today (Active) -->
+      <a href="screen1_home.html" class="ios-tab-item active-tab">
+        <svg viewBox="0 0 24 24">
+          <path d="M12 3L2 12H5V20H19V12H22L12 3Z"/>
+        </svg>
+        <span>Today</span>
+      </a>
+
+      <!-- Tab 2: Breakdown -->
+      <a href="screen2_breakdown.html" class="ios-tab-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="8" y1="6" x2="21" y2="6"/>
+          <line x1="8" y1="12" x2="21" y2="12"/>
+          <line x1="8" y1="18" x2="21" y2="18"/>
+          <line x1="3" y1="6" x2="3.01" y2="6"/>
+          <line x1="3" y1="12" x2="3.01" y2="12"/>
+          <line x1="3" y1="18" x2="3.01" y2="18"/>
+        </svg>
+        <span>Breakdown</span>
+      </a>
+
+      <!-- Tab 3: Focus Timer -->
+      <a href="screen3_timer.html" class="ios-tab-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/>
+          <polyline points="12 6 12 12 16 14"/>
+        </svg>
+        <span>Focus</span>
+      </a>
+
+      <!-- Tab 4: Sensory Settings -->
+      <a href="screen4_sensory.html" class="ios-tab-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="4" y1="21" x2="4" y2="14"/>
+          <line x1="4" y1="10" x2="4" y2="3"/>
+          <line x1="12" y1="21" x2="12" y2="12"/>
+          <line x1="12" y1="8" x2="12" y2="3"/>
+          <line x1="20" y1="21" x2="20" y2="16"/>
+          <line x1="20" y1="12" x2="20" y2="3"/>
+          <line x1="1" y1="14" x2="7" y2="14"/>
+          <line x1="9" y1="8" x2="15" y2="8"/>
+          <line x1="17" y1="16" x2="23" y2="16"/>
+        </svg>
+        <span>Sensory</span>
+      </a>
+
+      <!-- iOS Home Indicator Swipe Bar -->
+      <div class="ios-home-indicator"></div>
+    </nav>
+
+  </main>
+
+</body>
+</html>

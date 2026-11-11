@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NeuroPulse HE — Mid-Fidelity Interactive Prototype (iPhone 17 Pro Max)</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Lexend:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body class="theme-default font-standard">
+  <!-- Desktop App Shell & Examiner Guidance -->
+  <div class="prototype-workspace">
+    
+    <!-- Sidebar: Examiner Overview & HCI Guidance -->
+    <aside class="examiner-sidebar">
+      <div class="sidebar-header">
+        <span class="badge-module">COMP1649 HCI</span>
+        <h2>NeuroPulse HE</h2>
+        <p class="subtitle">Mid-Fidelity Proof of Concept for Neurodiverse Learners in Higher Education</p>
+      </div>
+
+      <div class="sidebar-card">
+        <h3>🎯 Tested Core Journeys</h3>
+        <ol class="journey-list">
+          <li class="active-step" data-target-screen="screen-home">
+            <strong>Journey 1: Cognitive State & Overview</strong>
+            <span>Quick overwhelm check-in and prioritized single-focus view.</span>
+          </li>
+          <li data-target-screen="screen-decompose">
+            <strong>Journey 2: Smart Task Breakdown</strong>
+            <span>Deconstructing daunting coursework into 15-minute micro-actions.</span>
+          </li>
+          <li data-target-screen="screen-timer">
+            <strong>Journey 3: Time-Blindness Focus Timer</strong>
+            <span>Visual circular time-lapse gauge with gentle sensory transitions.</span>
+          </li>
+          <li data-target-screen="screen-settings">
+            <strong>Journey 4: Neuro-Adaptive Sensory UI</strong>
+            <span>On-the-fly typography, sensory palette, and clutter shielding.</span>
+          </li>
+        </ol>
+      </div>
+
+      <div class="sidebar-card">
+        <h3>🔍 Don Norman's Principles Inspector</h3>
+        <p class="help-text">Click any principle to highlight its live implementation on the iPhone screen:</p>
+        <div class="principles-button-grid">
+          <button class="btn-principle" data-principle="visibility">👁️ Visibility</button>
+          <button class="btn-principle" data-principle="feedback">🔔 Feedback</button>
+          <button class="btn-principle" data-principle="constraints">🚫 Constraints</button>
+          <button class="btn-principle" data-principle="consistency">📐 Consistency</button>
+          <button class="btn-principle" data-principle="affordance">👆 Affordance</button>
+        </div>
+        <div id="principle-explanation" class="principle-box">
+          <em>Select a principle above to view its theoretical justification.</em>
+        </div>
+      </div>
+
+      <div class="sidebar-card spec-note">
+        <small><strong>Target Viewport:</strong> iPhone 17 Pro Max (430 × 932 pt / CSS px). Built with semantic HTML, accessible CSS tokens, and vanilla JS for mid-fidelity validation.</small>
+      </div>
+    </aside>
+
+    <!-- Main Stage: iPhone 17 Pro Max Mockup -->
+    <main class="device-stage">
+      <div class="iphone-bezel" id="iphone-bezel">
+        <!-- Physical Features -->
+        <div class="dynamic-island">
+          <div class="camera-lens"></div>
+          <div class="sensor-indicator"></div>
+        </div>
+        
+        <!-- Status Bar -->
+        <div class="status-bar">
+          <span class="status-time" id="live-clock">09:41</span>
+          <div class="status-icons">
+            <span class="icon-signal">●●●●</span>
+            <span class="icon-wifi">📶</span>
+            <span class="icon-battery">98% 🔋</span>
+          </div>
+        </div>
+
+        <!-- App Screen Container -->
+        <div class="screen-viewport" id="screen-viewport">
+
+          <!-- ================= SCREEN 1: HOME / DASHBOARD ================= -->
+          <section class="screen active" id="screen-home">
+            <div class="screen-header">
+              <div>
+                <p class="greeting-tag">Good morning, Alex 👋</p>
+                <h1 class="screen-title">Today's Focus</h1>
+              </div>
+              <button class="btn-icon-profile" id="nav-btn-profile" title="Sensory Profile">
+                <span>⚙️</span>
+              </button>
+            </div>
+
+            <!-- Overwhelm / Cognitive Load Check-in -->
+            <div class="cognitive-banner" data-principle-target="feedback affordance">
+              <div class="cognitive-text">
+                <span class="cognitive-label">Sensory Energy Check</span>
+                <p class="cognitive-sub">How overwhelmed do you feel right now?</p>
+              </div>
+              <div class="mood-selectors">
+                <button class="mood-chip active" data-mood="calm">🟢 Focused</button>
+                <button class="mood-chip" data-mood="neutral">🟡 Moderate</button>
+                <button class="mood-chip" data-mood="overwhelmed">🔴 Sensory Overload</button>
+              </div>
+            </div>
+
+            <!-- Current Micro-Target (Single Point of Focus to combat executive paralysis) -->
+            <div class="focus-hero-card" data-principle-target="visibility affordance">
+              <div class="card-badge">NEXT IMMEDIATE STEP (15 MIN)</div>
+              <h2 class="focus-hero-title">Find 3 ACM papers on ADHD UI Design</h2>
+              <p class="focus-hero-meta">Part of: <strong>COMP1649 HCI Coursework</strong></p>
+              <div class="hero-actions">
+                <button class="btn-primary-hero" id="btn-start-hero-timer">
+                  ▶ Start Focus Session
+                </button>
+                <button class="btn-secondary-hero" id="btn-open-breakdown">
+                  View Sub-Tasks (1/4)
+                </button>
+              </div>
+            </div>
+
+            <!-- Active Coursework Modules -->
+            <div class="section-title-row">
+              <h3>My Coursework Projects</h3>
+              <span class="badge-count">2 Active</span>
+            </div>
+
+            <div class="coursework-list">
+              <div class="coursework-card active-card" data-principle-target="affordance consistency">
+                <div class="cw-card-header">
+                  <span class="cw-tag cw-hci">COMP1649 HCI</span>
+                  <span class="cw-deadline">Due in 14 days</span>
+                </div>
+                <h4 class="cw-name">Interactive Mid-Fi Prototype & Report</h4>
+                <div class="progress-bar-container">
+                  <div class="progress-bar-fill" style="width: 45%;"></div>
+                </div>
+                <div class="cw-card-footer">
+                  <span class="cw-steps-left">3 of 8 micro-tasks done</span>
+                  <button class="btn-text-action" id="btn-cw-decompose">Deconstruct ➔</button>
+                </div>
+              </div>
+
+              <div class="coursework-card" data-principle-target="consistency">
+                <div class="cw-card-header">
+                  <span class="cw-tag cw-ds">COMP1648 DS</span>
+                  <span class="cw-deadline">Due in 24 days</span>
+                </div>
+                <h4 class="cw-name">Algorithm Complexity & Trees</h4>
+                <div class="progress-bar-container">
+                  <div class="progress-bar-fill" style="width: 15%;"></div>
+                </div>
+                <div class="cw-card-footer">
+                  <span class="cw-steps-left">1 of 6 micro-tasks done</span>
+                  <button class="btn-text-action">Open ➔</button>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- ================= SCREEN 2: TASK BREAKDOWN (DECONSTRUCTOR) ================= -->
+          <section class="screen" id="screen-decompose">
+            <div class="screen-header">
+              <button class="btn-back" data-navigate-back="screen-home">‹ Back</button>
+              <h1 class="screen-title-sub">Smart Task Breakdown</h1>
+              <span class="spacer-right"></span>
+            </div>
+
+            <div class="breakdown-intro-card" data-principle-target="visibility feedback">
+              <div class="breakdown-tag">AI DECONSTRUCTION ENGINE</div>
+              <h3>COMP1649: HCI Coursework Report</h3>
+              <p>Large 3000-word assignments often trigger task paralysis. We chunked this assignment into 15-minute stepping stones:</p>
+            </div>
+
+            <!-- Task Stepping Stones List -->
+            <div class="stepping-stones-list" id="task-checklist" data-principle-target="affordance constraints">
+              <div class="stone-item completed" data-task-id="1">
+                <div class="stone-checkbox">✓</div>
+                <div class="stone-content">
+                  <h5>Read coursework specification & rubric</h5>
+                  <span class="stone-duration">15 mins • Knowledge Base</span>
+                </div>
+                <button class="btn-stone-menu">⋯</button>
+              </div>
+
+              <div class="stone-item current-step" data-task-id="2">
+                <div class="stone-checkbox active-check"></div>
+                <div class="stone-content">
+                  <h5>Search 3 ACM papers on ADHD & neurodiverse UI</h5>
+                  <span class="stone-duration">15 mins • Annotated Bibliography</span>
+                </div>
+                <button class="btn-quick-play" id="btn-stone-play" title="Launch timer for this task">▶</button>
+              </div>
+
+              <div class="stone-item" data-task-id="3">
+                <div class="stone-checkbox"></div>
+                <div class="stone-content">
+                  <h5>Draft 1-paragraph summary for Paper #1</h5>
+                  <span class="stone-duration">15 mins • Literature Review</span>
+                </div>
+                <button class="btn-stone-menu">⋯</button>
+              </div>
+
+              <div class="stone-item" data-task-id="4">
+                <div class="stone-checkbox"></div>
+                <div class="stone-content">
+                  <h5>Sketch Norman's affordance principle wireframe</h5>
+                  <span class="stone-duration">15 mins • Interaction Design</span>
+                </div>
+                <button class="btn-stone-menu">⋯</button>
+              </div>
+            </div>
+
+            <!-- Add/Deconstruct Custom Assignment Button -->
+            <div class="add-task-box" data-principle-target="constraints affordance">
+              <div class="input-with-button">
+                <input type="text" id="input-new-assignment" placeholder="Enter intimidating assignment..." value="Write Literature Review Section">
+                <button class="btn-decompose-magic" id="btn-magic-chunk">🪄 Break Down</button>
+              </div>
+              <small class="hint-caption">Automatically splits broad topics into 10–15 min micro-actions.</small>
+            </div>
+          </section>
+
+          <!-- ================= SCREEN 3: FOCUS & TIME-BLINDNESS TIMER ================= -->
+          <section class="screen" id="screen-timer">
+            <div class="screen-header">
+              <button class="btn-back" data-navigate-back="screen-home">‹ Back</button>
+              <h1 class="screen-title-sub">Time-Blindness Timer</h1>
+              <span class="spacer-right"></span>
+            </div>
+
+            <!-- Target Banner -->
+            <div class="timer-target-banner">
+              <span class="target-sub">ACTIVE MICRO-TASK</span>
+              <h4 id="timer-task-label">Search 3 ACM papers on ADHD UI</h4>
+            </div>
+
+            <!-- Circular Visual Gauge (addresses ADHD time-blindness visually without panic) -->
+            <div class="timer-visual-container" data-principle-target="visibility feedback">
+              <svg class="timer-svg" viewBox="0 0 240 240">
+                <circle class="timer-track" cx="120" cy="120" r="100"></circle>
+                <circle class="timer-progress" id="timer-progress-ring" cx="120" cy="120" r="100"></circle>
+              </svg>
+              <div class="timer-digits-container">
+                <span class="timer-digits" id="timer-display">15:00</span>
+                <span class="timer-status-caption" id="timer-status-caption">Ready to focus</span>
+              </div>
+            </div>
+
+            <!-- Preset Duration Selectors -->
+            <div class="timer-presets" data-principle-target="constraints consistency">
+              <button class="btn-preset active" data-minutes="15">15 min (Micro)</button>
+              <button class="btn-preset" data-minutes="25">25 min (Standard)</button>
+              <button class="btn-preset" data-minutes="5">5 min (Quick sprint)</button>
+            </div>
+
+            <!-- Primary Timer Controls -->
+            <div class="timer-controls-row" data-principle-target="affordance feedback">
+              <button class="btn-ctrl-secondary" id="btn-timer-reset">↺ Reset</button>
+              <button class="btn-ctrl-primary" id="btn-timer-toggle">▶ Begin Micro-Focus</button>
+              <button class="btn-ctrl-secondary" id="btn-timer-sound" title="Toggle Calming Brown Noise">🎧 Sound: On</button>
+            </div>
+
+            <div class="sensory-note-banner">
+              <span>🍃 Gentle ending alert: Soft ambient chime + visual pulse (no heart-racing alarm bells).</span>
+            </div>
+          </section>
+
+          <!-- ================= SCREEN 4: SENSORY & UI ADAPTIVE SETTINGS ================= -->
+          <section class="screen" id="screen-settings">
+            <div class="screen-header">
+              <button class="btn-back" data-navigate-back="screen-home">‹ Back</button>
+              <h1 class="screen-title-sub">Sensory & Accessibility</h1>
+              <span class="spacer-right"></span>
+            </div>
+
+            <div class="settings-group" data-principle-target="affordance visibility">
+              <div class="settings-group-header">
+                <h4>📖 Typography for Reading Difficulties</h4>
+                <p>Designed for Dyslexia, ADHD tracking, and visual fatigue.</p>
+              </div>
+
+              <div class="setting-item">
+                <div class="setting-text">
+                  <strong>OpenDyslexic Font</strong>
+                  <span>Weighted bottom letters to avoid letter swapping</span>
+                </div>
+                <label class="toggle-switch">
+                  <input type="checkbox" id="toggle-dyslexic-font">
+                  <span class="toggle-slider"></span>
+                </label>
+              </div>
+
+              <div class="setting-item">
+                <div class="setting-text">
+                  <strong>Bionic / Guided Fixation Reading</strong>
+                  <span>Emphasizes initial syllables for faster tracking</span>
+                </div>
+                <label class="toggle-switch">
+                  <input type="checkbox" id="toggle-bionic-reading">
+                  <span class="toggle-slider"></span>
+                </label>
+              </div>
+            </div>
+
+            <div class="settings-group" data-principle-target="feedback consistency">
+              <div class="settings-group-header">
+                <h4>🎨 Visual & Sensory Palettes</h4>
+                <p>Reduces sensory stimulation, migraines, and cognitive overwhelm.</p>
+              </div>
+
+              <div class="palette-grid">
+                <button class="palette-card active" data-palette="theme-default">
+                  <span class="swatch swatch-neutral"></span>
+                  <strong>Mid-Fi Slate</strong>
+                  <small>Default wireframe</small>
+                </button>
+                <button class="palette-card" data-palette="theme-soft-sage">
+                  <span class="swatch swatch-sage"></span>
+                  <strong>Calm Sage</strong>
+                  <small>Low sensory strain</small>
+                </button>
+                <button class="palette-card" data-palette="theme-warm-amber">
+                  <span class="swatch swatch-amber"></span>
+                  <strong>Warm Amber</strong>
+                  <small>Night & blue-light filter</small>
+                </button>
+                <button class="palette-card" data-palette="theme-dark-focus">
+                  <span class="swatch swatch-dark"></span>
+                  <strong>OLED Charcoal</strong>
+                  <small>High contrast dark</small>
+                </button>
+              </div>
+            </div>
+
+            <div class="settings-group" data-principle-target="constraints">
+              <div class="settings-group-header">
+                <h4>🛡️ Clutter & Distraction Shield</h4>
+                <p>Removes secondary badges, tags, and animations during high anxiety.</p>
+              </div>
+
+              <div class="setting-item">
+                <div class="setting-text">
+                  <strong>Strict Minimalist Mode</strong>
+                  <span>Hide non-essential metrics and campus feeds</span>
+                </div>
+                <label class="toggle-switch">
+                  <input type="checkbox" id="toggle-clutter-shield">
+                  <span class="toggle-slider"></span>
+                </label>
+              </div>
+            </div>
+          </section>
+
+        </div> <!-- /screen-viewport -->
+
+        <!-- Bottom Navigation Bar (Persistent 4-tab bar) -->
+        <nav class="bottom-tab-bar" data-principle-target="consistency affordance">
+          <button class="tab-item active" data-nav="screen-home">
+            <span class="tab-icon">🏠</span>
+            <span class="tab-label">Today</span>
+          </button>
+          <button class="tab-item" data-nav="screen-decompose">
+            <span class="tab-icon">🧩</span>
+            <span class="tab-label">Breakdown</span>
+          </button>
+          <button class="tab-item" data-nav="screen-timer">
+            <span class="tab-icon">⏳</span>
+            <span class="tab-label">Focus</span>
+          </button>
+          <button class="tab-item" data-nav="screen-settings">
+            <span class="tab-icon">🎨</span>
+            <span class="tab-label">Sensory</span>
+          </button>
+        </nav>
+
+        <!-- Home Indicator Swipe Bar -->
+        <div class="home-indicator"></div>
+      </div> <!-- /iphone-bezel -->
+    </main>
+  </div> <!-- /prototype-workspace -->
+
+  <!-- Feedback Toast Notification Container -->
+  <div id="toast-notification" class="toast-hidden">Action updated</div>
+
+  <script src="app.js"></script>
+</body>
+</html>
