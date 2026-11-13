@@ -5,69 +5,51 @@
 ## NeuroPulse HE — Option A
 
 A mobile companion for neurodivergent learners in higher education (ADHD, autism,
-dyslexia). The design is built around one next action, an explicit rest state, and
-interface settings that can be changed without diagnosis or disclosure.
+dyslexia), built around one next action, rest as a legitimate state, a calm reset
+reachable from every screen, and settings that need no disclosure.
 
 ## Deliverables
 
-| File | What it is |
+| Path | What it is |
 |------|-----------|
-| [`report/COMP1649_Coursework_Report.docx`](report/COMP1649_Coursework_Report.docx) | Report in Word format, ready to upload to Google Docs or submit as PDF |
-| [`report/COMP1649_Coursework_Report.pdf`](report/COMP1649_Coursework_Report.pdf) | Print-ready PDF of the same report |
-| [`report/report.html`](report/report.html) | Editable source of the report, with figure paths |
-| [`report/figures/`](report/figures/) | Figure images used in the report |
-| [`prototype/`](prototype/) | Nine standalone screens, one HTML file per screen |
+| `report/COMP1649_Coursework_Report.docx` | The report: about 3,000 words from Introduction to Conclusion (including captions and tables), 12 Harvard references with active DOI links, appendices A–F |
+| `report/figures/sketches/` | Hand-drawn style sketches: first versions, final sketch of each screen, storyboard, card-based prototype. Redraw them on paper, photograph, and save over the PNG with the same name |
+| `report/figures/` | One image per screen (`screen-*.png`) and one annotated screen per Norman principle (`norman-*.png`) |
+| `figma/NN-*.html` | 8 main screens + 4 state variants (one 430 × 932 frame per file, no device frame) for html.to.design |
+| `figma/png/` | 2× screenshots of every screen (860 × 1864) |
+| `figma/FIGMA_GUIDE.md` | Import steps and the interaction wiring table for Figma Design |
 
-The report runs from the Introduction to the Conclusion at **3,229 words** (the
-brief allows 2,000–3,000 words, with 10% over not penalised). Title page,
-contents, references and appendices are excluded. All 18 references were checked
-against Crossref; titles, authors, volumes, pages and DOIs match the publisher
-record.
+The brief requires a Figma Design (.fig) prototype: import the screens with
+html.to.design and connect the interactions as described in `figma/FIGMA_GUIDE.md`.
 
-## Prototype
+## Screens
 
-Open [`prototype/index.html`](prototype/index.html) for the prototype map: live
-thumbnails, the three journeys, design rationale and the reference list. Each
-screen also opens on its own:
+| Frame | Journey | Purpose |
+|---|---|---|
+| 01 Today | J1 | One next action |
+| 02 Plan | J1, J3 | Work split into steps of 15 minutes or less |
+| 03 Step | J1 | Definition of done and a single start |
+| 04 Focus / 04b Paused | J1 | Remaining time visible; Pause is the primary control |
+| 05 Rest | J1 | Rest as the next task; stopping is never "missed" |
+| 06 Calm / 06b Quiet mode | J2 | Low-demand reset, dim colours, silence, hide numbers |
+| 07 Settings / 07b Applied | J3 | Text size, spacing, typeface, colour, motion, applied live |
+| 08 Progress | J3 | Steps, time and rest days without streaks; routes to people |
+| 00 Today (control) | Study | Dashboard condition for the A/B study in Section 5 |
 
-1. [`01-today.html`](prototype/01-today.html) — one next action, no backlog
-2. [`02-plan.html`](prototype/02-plan.html) — work split into 15–25 minute steps
-3. [`03-step.html`](prototype/03-step.html) — definition of done and a single start
-4. [`04-focus.html`](prototype/04-focus.html) — timer without time pressure
-5. [`05-rest.html`](prototype/05-rest.html) — rest as a legitimate state
-6. [`06-calm.html`](prototype/06-calm.html) — low-demand reset and paced breathing
-7. [`07-reading.html`](prototype/07-reading.html) — size, spacing and typeface controls
-8. [`08-sensory.html`](prototype/08-sensory.html) — colour, motion and sound
-9. [`09-support.html`](prototype/09-support.html) — progress without streaks, plus human support
+## References
 
-Every screen has a right-hand spec rail naming the research behind it, the Norman
-principles applied, and interaction notes. Add `#embed` to a screen URL to hide
-the rail and show the artboard alone.
+All 12 references were checked against Crossref and the publisher record (authors,
+title, venue, volume, issue, pages, DOI), and the 8 annotated sources against their
+abstracts. Format: Cite Them Right Harvard.
 
-### Format note
+## Rebuilding
 
-The brief specifies Axure RP or Figma Design. The submission supplies a coded
-HTML/CSS build at the same 430 × 932 artboard size, one file per screen, so each
-artboard can be reviewed on its own and the interaction logic can be inspected.
-The screens use standard components and import into Figma Design; the browser
-build is the reference artefact.
+```bash
+python3 scripts/build_screens.py      # figma/*.html
+bash scripts/capture.sh               # figma/png/*.png (headless Chrome)
+python3 scripts/build_figures.py      # report/figures/*.png   (needs Pillow)
+bash scripts/build_sketches.sh        # report/figures/sketches/*.png (rough.js, Kalam/Caveat fonts)
+python3 scripts/build_report.py       # report .docx           (needs python-docx, pypdf, LibreOffice for page numbers)
+```
 
-## Design decisions with evidence
-
-- **One next action** rather than a dashboard (Sonne et al., 2016).
-- **Rest as a screen**, not a modal or a reward (Van Hees, Moyson and Roeyers, 2015).
-- **No streaks, scores or badges** (Spiel et al., 2022).
-- **OpenDyslexic available but off by default**, because Wery and Diliberto (2017)
-  found no reading-rate or accuracy benefit; size and spacing controls are
-  prioritised instead (Rello and Baeza-Yates, 2013).
-- **Adjustment without disclosure**, in the main navigation (Clouder et al., 2020;
-  Morris, Begel and Wiedermann, 2015).
-- **Routes to people**, because software is not a substitute for support
-  (McDowall and Kiseleva, 2024).
-
-## Running the prototype
-
-No build step. Open `prototype/index.html` in a browser; the only external
-dependency is the Google Fonts stylesheet. The report was generated from
-`report/report.html` with python-docx, and the figures were captured from the
-prototype in headless Chrome at the 430 × 932 artboard size.
+Set the student name, ID and tutor in `STUDENT` at the top of `scripts/build_report.py`.

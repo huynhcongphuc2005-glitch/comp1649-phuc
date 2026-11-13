@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>sketch</title>
+<link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&family=Caveat:wght@500&display=swap" rel="stylesheet">
+<style>
+  html, body { margin: 0; background: #fdfcf7; }
+  svg { display: block; }
+  /* preload both fonts so document.fonts.ready waits for them */
+  .preload { font-family: Kalam; position: absolute; left: -999px; }
+  .preload b { font-family: Caveat; }
+</style>
+</head>
+<body>
+<span class="preload">a <b>a</b> <strong>a</strong></span>
+<svg id="sheet" xmlns="http://www.w3.org/2000/svg"></svg>
+<script src="rough.js"></script>
+<script src="sketch.js"></script>
+</body>
+</html>
