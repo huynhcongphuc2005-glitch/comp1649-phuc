@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="paper">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>06 · Calm — NeuroPulse HE</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="core.css">
+<style>
+  .calm-head { display: flex; flex-direction: column; gap: 8px; padding-top: 4px; }
+  .calm-head h1 { font-size: 29px; line-height: 1.18; font-weight: 650; letter-spacing: -.03em; }
+  .calm-head p { font-size: 14.5px; line-height: 1.55; color: var(--ink-2); max-width: 32ch; }
+
+  .breath-card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--r-xl);
+    padding: 22px 20px 20px;
+    display: flex; flex-direction: column; align-items: center; gap: 16px;
+  }
+  .breath-orb {
+    position: relative;
+    width: 190px; height: 190px;
+    display: grid; place-items: center;
+  }
+  .breath-orb__halo {
+    position: absolute; inset: 0;
+    border-radius: 50%;
+    border: 1px solid var(--sage-line);
+    background: var(--sage-wash);
+    transform: scale(.72);
+    transition: transform 4s cubic-bezier(.4, 0, .5, 1);
+  }
+  [data-breath][data-phase="0"] .breath-orb__halo { transform: scale(1); }
+  [data-breath][data-phase="1"] .breath-orb__halo { transform: scale(1); }
+  [data-breath][data-phase="2"] .breath-orb__halo { transform: scale(.72); }
+  [data-breath][data-phase="3"] .breath-orb__halo { transform: scale(.72); }
+  .breath-orb__inner {
+    position: relative; display: flex; flex-direction: column; align-items: center; gap: 2px;
+  }
+  .breath-orb__phase { font-size: 14px; font-weight: 600; color: var(--sage-deep); }
+  .breath-orb__count { font-size: 40px; font-weight: 300; letter-spacing: -.04em; color: var(--ink); font-variant-numeric: tabular-nums; }
+  .breath-orb__sub { font-size: 11px; color: var(--ink-3); letter-spacing: .05em; text-transform: uppercase; }
+  .breath-card .btn { width: 100%; }
+
+  .quiet-list .setting-row { padding: 13px 0; }
+
+  .help-card { display: flex; flex-direction: column; gap: 0; }
+  .help-row {
+    display: flex; align-items: center; gap: 12px;
+    padding: 13px 0; border-bottom: 1px solid var(--line-soft);
+    text-decoration: none;
+  }
+  .help-row:last-child { border-bottom: 0; }
+  .help-row__icon {
+    flex: 0 0 34px; height: 34px; border-radius: 10px;
+    background: var(--surface-2); display: grid; place-items: center; color: var(--ink-2);
+  }
+  .help-row__text { flex: 1; display: flex; flex-direction: column; gap: 1px; }
+  .help-row__text b { font-size: 13.5px; font-weight: 600; }
+  .help-row__text span { font-size: 11.5px; color: var(--ink-3); }
+  .help-row > svg { flex: 0 0 16px; color: var(--ink-3); }
+
+  .exit { text-align: center; padding-top: 4px; }
+  .exit a { font-size: 13px; font-weight: 600; color: var(--sage-deep); text-decoration: none; }
+</style>
+</head>
+<body>
+<div class="workspace">
+
+  <div class="artboard" role="application" aria-label="NeuroPulse HE — Calm screen">
+
+    <div class="statusbar">
+      <span class="statusbar__time" data-clock>14:06</span>
+      <div class="statusbar__icons" aria-hidden="true">
+        <svg width="17" height="11" viewBox="0 0 17 11" fill="currentColor"><rect x="0" y="7" width="3" height="4" rx="1"/><rect x="4.6" y="5" width="3" height="6" rx="1"/><rect x="9.2" y="2.5" width="3" height="8.5" rx="1"/><rect x="13.8" y="0" width="3" height="11" rx="1"/></svg>
+        <svg width="16" height="12" viewBox="0 0 24 18" fill="currentColor"><path d="M12 15.5a1.9 1.9 0 1 1 0 3.8 1.9 1.9 0 0 1 0-3.8Zm0-5.4c2.1 0 4 .8 5.4 2.2l-1.5 1.5A5.7 5.7 0 0 0 12 12.1a5.7 5.7 0 0 0-3.9 1.7l-1.5-1.5A7.6 7.6 0 0 1 12 10.1Zm0-5.1c3.3 0 6.3 1.3 8.6 3.5l-1.5 1.5A10 10 0 0 0 12 7.1a10 10 0 0 0-7.1 2.9L3.4 8.5A12 12 0 0 1 12 5Z"/></svg>
+        <svg width="25" height="12" viewBox="0 0 25 12" fill="none"><rect x=".7" y=".7" width="20.6" height="10.6" rx="3" stroke="currentColor" stroke-width="1.2" opacity=".4"/><rect x="2.2" y="2.2" width="15.6" height="7.6" rx="1.8" fill="currentColor"/><path d="M23 4.2c.8.4 1.2 1 1.2 1.8s-.4 1.4-1.2 1.8V4.2Z" fill="currentColor" opacity=".5"/></svg>
+      </div>
+    </div>
+    <div class="island" aria-hidden="true"></div>
+
+    <header class="appbar">
+      <a class="icon-btn" href="01-today.html" aria-label="Back to Today">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg>
+      </a>
+      <span class="appbar__title">Calm</span>
+      <div class="appbar__spacer"></div>
+    </header>
+
+    <main class="content">
+
+      <div class="calm-head">
+        <span class="eyebrow">Overload mode</span>
+        <h1>Let's make things quieter.</h1>
+        <p>Nothing on this screen needs a decision. Stay as long as you like.</p>
+      </div>
+
+      <section class="breath-card" aria-labelledby="breath-title" data-breath data-phase="0">
+        <div class="breath-orb" data-breath-orb>
+          <div class="breath-orb__halo"></div>
+          <div class="breath-orb__inner">
+            <span class="breath-orb__phase" data-breath-phase id="breath-title">Breathe in</span>
+            <span class="breath-orb__count" data-breath-count>4</span>
+            <span class="breath-orb__sub">box breathing</span>
+          </div>
+        </div>
+        <button class="btn btn--secondary" data-breath-toggle>Start breathing</button>
+      </section>
+
+      <div class="section-label"><h2>Turn down the noise</h2><span>change any time</span></div>
+
+      <section class="card quiet-list" aria-label="Reduce stimulation">
+        <div class="setting-row">
+          <span class="help-row__icon" style="flex:0 0 34px;height:34px;border-radius:10px;background:var(--surface-2);display:grid;place-items:center;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11Z"/></svg>
+          </span>
+          <div class="setting-row__text">
+            <span class="setting-row__title">Dim the colours</span>
+            <span class="setting-row__hint">Night palette, lower contrast, no bright whites</span>
+          </div>
+          <button class="toggle" role="switch" aria-checked="true" aria-label="Dim the colours" data-theme-switch="night"></button>
+        </div>
+        <div class="setting-row">
+          <span class="help-row__icon" style="flex:0 0 34px;height:34px;border-radius:10px;background:var(--surface-2);display:grid;place-items:center;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 8-3 8h18s-3-1-3-8"/><path d="M10.3 21a2 2 0 0 0 3.4 0"/><path d="M3 3l18 18"/></svg>
+          </span>
+          <div class="setting-row__text">
+            <span class="setting-row__title">Silence everything</span>
+            <span class="setting-row__hint">No badges, no reminders, no counts until tomorrow</span>
+          </div>
+          <button class="toggle" role="switch" aria-checked="true" aria-label="Silence notifications"></button>
+        </div>
+        <div class="setting-row">
+          <span class="help-row__icon" style="flex:0 0 34px;height:34px;border-radius:10px;background:var(--surface-2);display:grid;place-items:center;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M4 7h16M4 12h10M4 17h6"/></svg>
+          </span>
+          <div class="setting-row__text">
+            <span class="setting-row__title">Hide all numbers</span>
+            <span class="setting-row__hint">Removes progress counts from the interface</span>
+          </div>
+          <button class="toggle" role="switch" aria-checked="false" aria-label="Hide all numbers"></button>
+        </div>
+      </section>
+
+      <div class="section-label"><h2>If you want to talk to someone</h2></div>
+
+      <a class="help-row" href="09-support.html" style="background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);padding:14px 15px;">
+        <span class="help-row__icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9.5" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9"/></svg>
+        </span>
+        <span class="help-row__text"><b>Advisers, wellbeing and your tutor</b><span>You do not have to explain everything</span></span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 5l7 7-7 7"/></svg>
+      </a>
+
+      <div class="exit"><a href="01-today.html">I'm okay — back to Today</a></div>
+
+    </main>
+
+    <nav class="tabbar" aria-label="Primary">
+      <a class="tab" href="01-today.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10.5 12 4l8 6.5V20a1 1 0 0 1-1 1h-4v-6H9v6H5a1 1 0 0 1-1-1v-9.5Z"/></svg>
+        Today
+      </a>
+      <a class="tab" href="02-plan.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6h13M8 12h13M8 18h13"/><circle cx="3.5" cy="6" r="1.2" fill="currentColor" stroke="none"/><circle cx="3.5" cy="12" r="1.2" fill="currentColor" stroke="none"/><circle cx="3.5" cy="18" r="1.2" fill="currentColor" stroke="none"/></svg>
+        Plan
+      </a>
+      <a class="tab" href="04-focus.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2"/><path d="M9 2h6"/></svg>
+        Focus
+      </a>
+      <a class="tab is-active" href="06-calm.html" aria-current="page">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15c2.5-1.5 4-4 4-7a4 4 0 0 1 8 0c0 3 1.5 5.5 4 7"/><path d="M4 15h16"/><path d="M9 19h6"/></svg>
+        Calm
+      </a>
+    </nav>
+
+    <div class="homebar" aria-hidden="true"></div>
+    <div class="toast" role="status" aria-live="polite"></div>
+  </div>
+
+  <aside class="spec">
+    <div>
+      <span class="spec__kicker">Screen 06 / 09 · Calm</span>
+      <h1 class="spec__title">A place to stop</h1>
+      <p class="spec__intro">Overload mode removes work entirely. It offers one paced breathing exercise, three ways to reduce stimulation, and direct routes to human support.</p>
+    </div>
+
+    <div class="spec__card">
+      <h3>Research basis</h3>
+      <ul class="spec__list">
+        <li>Van Hees, Moyson and Roeyers (2015) report that autistic students' support needs are frequently social and emotional, not only academic.</li>
+        <li>McDowall and Kiseleva (2024) argue that isolated apps are weak substitutes for integrated institutional support.</li>
+        <li>Zervogianni et al. (2020): reliability and engagement depend on the user being able to trust and stop the system.</li>
+      </ul>
+    </div>
+
+    <div class="spec__card">
+      <h3>Norman's principles</h3>
+      <div class="spec__principle"><span class="spec__tag">Constraints</span><p>No task list, no deadlines, no "resume" pressure. The only forward actions are breathing or leaving.</p></div>
+      <div class="spec__principle"><span class="spec__tag">Feedback</span><p>The orb changes size and the phase label names the state; the countdown is visible without being urgent.</p></div>
+      <div class="spec__principle"><span class="spec__tag">Affordance</span><p>Support contacts are plain tappable rows with explicit labels, not buried in a help centre.</p></div>
+    </div>
+
+    <div class="spec__card">
+      <h3>Interaction notes</h3>
+      <p>The breathing pacer runs a 4-4-4-4 cycle. The first switch applies the night palette to the whole artboard; the others are local preference states.</p>
+    </div>
+  </aside>
+</div>
+
+<script src="ui.js"></script>
+<script>
+  // Apply night theme from the "dim the colours" switch
+  const dim = document.querySelector('[data-theme-switch]');
+  dim.addEventListener('click', () => {
+    document.documentElement.setAttribute('data-theme', dim.getAttribute('aria-checked') === 'true' ? 'night' : 'paper');
+  });
+</script>
+</body>
+</html>

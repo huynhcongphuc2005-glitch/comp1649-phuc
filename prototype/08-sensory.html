@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="paper">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>08 · Sensory — NeuroPulse HE</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="core.css">
+<style>
+  .sens-head { display: flex; flex-direction: column; gap: 7px; padding-top: 4px; }
+  .sens-head h1 { font-size: 27px; line-height: 1.2; font-weight: 650; letter-spacing: -.028em; }
+  .sens-head p { font-size: 14px; line-height: 1.55; color: var(--ink-2); max-width: 33ch; }
+
+  .content { gap: 14px; }
+  .theme-grid { display: flex; flex-direction: column; gap: 8px; }
+  .theme-option {
+    display: flex; align-items: center; gap: 13px;
+    padding: 9px 13px;
+    border: 1.5px solid var(--line);
+    border-radius: var(--r-md);
+    background: var(--surface);
+    cursor: pointer; text-align: left;
+    transition: border-color .16s var(--ease), box-shadow .16s var(--ease);
+  }
+  .theme-option[aria-pressed="true"] { border-color: var(--sage); box-shadow: 0 0 0 3px var(--sage-wash); }
+  .theme-option__swatch { display: flex; gap: 3px; flex: 0 0 auto; }
+  .theme-option__swatch i { width: 18px; height: 28px; border-radius: 5px; border: 1px solid rgba(23,30,25,.1); }
+  .theme-option__body { flex: 1; display: flex; flex-direction: column; gap: 1px; }
+  .theme-option__body b { font-size: 14px; font-weight: 600; }
+  .theme-option__body span { font-size: 11.5px; color: var(--ink-3); }
+  .theme-option__tick { width: 20px; height: 20px; border-radius: 50%; border: 1.5px solid var(--line); display: grid; place-items: center; color: transparent; }
+  .theme-option[aria-pressed="true"] .theme-option__tick { background: var(--sage); border-color: var(--sage); color: #fff; }
+  .theme-option[aria-pressed="true"] .theme-option__tick svg { width: 12px; height: 12px; }
+
+  .link-card {
+    display: flex; align-items: center; gap: 13px;
+    padding: 14px 15px;
+    border: 1px solid var(--line); border-radius: var(--r-md);
+    background: var(--surface); text-decoration: none;
+  }
+  .link-card__icon { flex: 0 0 36px; height: 36px; border-radius: 10px; background: var(--sage-wash); color: var(--sage-deep); display: grid; place-items: center; }
+  .link-card__body { flex: 1; display: flex; flex-direction: column; gap: 1px; }
+  .link-card__body b { font-size: 14px; font-weight: 600; }
+  .link-card__body span { font-size: 11.5px; color: var(--ink-3); }
+  .link-card > svg { flex: 0 0 16px; color: var(--ink-3); }
+
+  .reset { text-align: center; padding-top: 2px; }
+  .reset button { border: 0; background: transparent; font-size: 12.5px; font-weight: 600; color: var(--ink-3); cursor: pointer; padding: 8px; }
+  .reset button:hover { color: var(--ink); }
+</style>
+</head>
+<body>
+<div class="workspace">
+
+  <div class="artboard" role="application" aria-label="NeuroPulse HE — Sensory settings screen">
+
+    <div class="statusbar">
+      <span class="statusbar__time" data-clock>14:06</span>
+      <div class="statusbar__icons" aria-hidden="true">
+        <svg width="17" height="11" viewBox="0 0 17 11" fill="currentColor"><rect x="0" y="7" width="3" height="4" rx="1"/><rect x="4.6" y="5" width="3" height="6" rx="1"/><rect x="9.2" y="2.5" width="3" height="8.5" rx="1"/><rect x="13.8" y="0" width="3" height="11" rx="1"/></svg>
+        <svg width="16" height="12" viewBox="0 0 24 18" fill="currentColor"><path d="M12 15.5a1.9 1.9 0 1 1 0 3.8 1.9 1.9 0 0 1 0-3.8Zm0-5.4c2.1 0 4 .8 5.4 2.2l-1.5 1.5A5.7 5.7 0 0 0 12 12.1a5.7 5.7 0 0 0-3.9 1.7l-1.5-1.5A7.6 7.6 0 0 1 12 10.1Zm0-5.1c3.3 0 6.3 1.3 8.6 3.5l-1.5 1.5A10 10 0 0 0 12 7.1a10 10 0 0 0-7.1 2.9L3.4 8.5A12 12 0 0 1 12 5Z"/></svg>
+        <svg width="25" height="12" viewBox="0 0 25 12" fill="none"><rect x=".7" y=".7" width="20.6" height="10.6" rx="3" stroke="currentColor" stroke-width="1.2" opacity=".4"/><rect x="2.2" y="2.2" width="15.6" height="7.6" rx="1.8" fill="currentColor"/><path d="M23 4.2c.8.4 1.2 1 1.2 1.8s-.4 1.4-1.2 1.8V4.2Z" fill="currentColor" opacity=".5"/></svg>
+      </div>
+    </div>
+    <div class="island" aria-hidden="true"></div>
+
+    <header class="appbar">
+      <a class="icon-btn" href="01-today.html" aria-label="Back to Today">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg>
+      </a>
+      <span class="appbar__title">Sensory</span>
+      <div class="appbar__spacer"></div>
+    </header>
+
+    <main class="content">
+
+      <div class="sens-head">
+        <span class="eyebrow">Environment</span>
+        <h1>Set the room<br>to your level.</h1>
+        <p>These settings apply everywhere and can be changed in the middle of anything.</p>
+      </div>
+
+      <div class="section-label" style="padding-top:0"><h2>Colour</h2><span>applies live</span></div>
+      <div class="theme-grid" data-theme-group>
+        <button class="theme-option" aria-pressed="true" data-set-theme="paper" data-theme-label="Paper">
+          <span class="theme-option__swatch">
+            <i style="background:#F7F5EF"></i><i style="background:#FFFFFF"></i><i style="background:#476A55"></i>
+          </span>
+          <span class="theme-option__body"><b>Paper</b><span>Warm off-white, muted green accent</span></span>
+          <span class="theme-option__tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+        </button>
+        <button class="theme-option" aria-pressed="false" data-set-theme="warm" data-theme-label="Warm">
+          <span class="theme-option__swatch">
+            <i style="background:#F6EEE2"></i><i style="background:#FDF8F0"></i><i style="background:#8A6A2F"></i>
+          </span>
+          <span class="theme-option__body"><b>Warm</b><span>Low blue light for evening study</span></span>
+          <span class="theme-option__tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+        </button>
+        <button class="theme-option" aria-pressed="false" data-set-theme="night" data-theme-label="Night">
+          <span class="theme-option__swatch">
+            <i style="background:#141915"></i><i style="background:#1B211C"></i><i style="background:#8FB79B"></i>
+          </span>
+          <span class="theme-option__body"><b>Night</b><span>Dim, low-luminance, no pure white</span></span>
+          <span class="theme-option__tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+        </button>
+      </div>
+
+      <div class="section-label"><h2>Movement &amp; sound</h2></div>
+      <section class="card" aria-label="Motion and sound">
+        <div class="setting-row">
+          <div class="setting-row__text">
+            <span class="setting-row__title">Reduce animation</span>
+            <span class="setting-row__hint">Removes transitions, parallax and auto-playing motion</span>
+          </div>
+          <button class="toggle" role="switch" aria-checked="true" aria-label="Reduce animation"></button>
+        </div>
+        <div class="setting-row">
+          <div class="setting-row__text">
+            <span class="setting-row__title">Silent mode</span>
+            <span class="setting-row__hint">No sounds, chimes or spoken feedback</span>
+          </div>
+          <button class="toggle" role="switch" aria-checked="false" aria-label="Silent mode"></button>
+        </div>
+        <div class="setting-row">
+          <div class="setting-row__text">
+            <span class="setting-row__title">Soft haptics</span>
+            <span class="setting-row__hint">A single light tap when a step is completed</span>
+          </div>
+          <button class="toggle" role="switch" aria-checked="true" aria-label="Soft haptics"></button>
+        </div>
+      </section>
+
+      <a class="link-card" href="07-reading.html">
+        <span class="link-card__icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M4 5h16v14H4z"/><path d="M8 9h8M8 13h8M8 17h5"/></svg>
+        </span>
+        <span class="link-card__body"><b>Reading &amp; type size</b><span>Text size, spacing and typeface</span></span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 5l7 7-7 7"/></svg>
+      </a>
+
+
+    </main>
+
+    <nav class="tabbar" aria-label="Primary">
+      <a class="tab" href="01-today.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10.5 12 4l8 6.5V20a1 1 0 0 1-1 1h-4v-6H9v6H5a1 1 0 0 1-1-1v-9.5Z"/></svg>
+        Today
+      </a>
+      <a class="tab" href="02-plan.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6h13M8 12h13M8 18h13"/><circle cx="3.5" cy="6" r="1.2" fill="currentColor" stroke="none"/><circle cx="3.5" cy="12" r="1.2" fill="currentColor" stroke="none"/><circle cx="3.5" cy="18" r="1.2" fill="currentColor" stroke="none"/></svg>
+        Plan
+      </a>
+      <a class="tab" href="04-focus.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2"/><path d="M9 2h6"/></svg>
+        Focus
+      </a>
+      <a class="tab is-active" href="06-calm.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15c2.5-1.5 4-4 4-7a4 4 0 0 1 8 0c0 3 1.5 5.5 4 7"/><path d="M4 15h16"/><path d="M9 19h6"/></svg>
+        Calm
+      </a>
+    </nav>
+
+    <div class="homebar" aria-hidden="true"></div>
+    <div class="toast" role="status" aria-live="polite"></div>
+  </div>
+
+  <aside class="spec">
+    <div>
+      <span class="spec__kicker">Screen 08 / 09 · Sensory</span>
+      <h1 class="spec__title">Personalisation, not prescription</h1>
+      <p class="spec__intro">A single settings surface exposes colour, motion and sound. Every control states its effect in plain language and applies immediately.</p>
+    </div>
+
+    <div class="spec__card">
+      <h3>Research basis</h3>
+      <ul class="spec__list">
+        <li>Morris, Begel and Wiedermann (2015) found that individualisation of environment was one of the most valued accommodations reported by neurodiverse workers.</li>
+        <li>Zervogianni et al. (2020) argue that digital support should be co-developed with its community and transparent about what it changes.</li>
+        <li>Van Hees, Moyson and Roeyers (2015) highlight sensory and emotional regulation as core support needs in higher education.</li>
+      </ul>
+    </div>
+
+    <div class="spec__card">
+      <h3>Norman's principles</h3>
+      <div class="spec__principle"><span class="spec__tag">Visibility</span><p>Every option is on one screen with a visible swatch, name and consequence — no sub-menus.</p></div>
+      <div class="spec__principle"><span class="spec__tag">Affordance</span><p>Full-width rows and iOS-style switches afford tapping; selected states use a tick, not colour alone.</p></div>
+      <div class="spec__principle"><span class="spec__tag">Consistency</span><p>The same tokens drive every screen, so a change here is never partial.</p></div>
+    </div>
+
+    <div class="spec__card">
+      <h3>Interaction notes</h3>
+      <p>Selecting Paper, Warm or Night re-themes the entire artboard live. Switches record a local preference only, and the reduction is visible in the very next transition. <em>Reading &amp; type size</em> continues to screen 07.</p>
+    </div>
+  </aside>
+</div>
+
+<script src="ui.js"></script>
+</body>
+</html>

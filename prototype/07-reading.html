@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="paper">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>07 · Reading — NeuroPulse HE</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="core.css">
+<style>
+  .read-head { display: flex; flex-direction: column; gap: 7px; padding-top: 4px; }
+  .read-head h1 { font-size: 27px; line-height: 1.2; font-weight: 650; letter-spacing: -.028em; }
+  .read-head p { font-size: 14px; line-height: 1.55; color: var(--ink-2); max-width: 33ch; }
+
+  .preview {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--r-lg);
+    padding: 13px 16px 12px;
+    font-size: 16px;
+    line-height: var(--line-read);
+    letter-spacing: var(--tracking-read);
+    color: var(--ink-2);
+    transition: font-size .15s var(--ease), letter-spacing .15s var(--ease);
+  }
+  .preview strong { color: var(--ink); font-weight: 650; }
+  .preview__label {
+    display: block; font-size: 10.5px; font-weight: 700; letter-spacing: .09em;
+    text-transform: uppercase; color: var(--ink-3); margin-bottom: 9px;
+  }
+
+  .control { display: flex; flex-direction: column; gap: 6px; padding: 8px 0; border-bottom: 1px solid var(--line-soft); }
+  .control:last-child { border-bottom: 0; padding-bottom: 2px; }
+  .control__top { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+  .control__label { font-size: 14px; font-weight: 550; }
+  .control__value { font-size: 12px; font-weight: 600; color: var(--sage-deep); font-variant-numeric: tabular-nums; }
+  .control__hint { font-size: 11.5px; color: var(--ink-3); line-height: 1.45; }
+
+  input[type="range"] {
+    -webkit-appearance: none; appearance: none;
+    width: 100%; height: 26px; background: transparent; cursor: pointer;
+  }
+  input[type="range"]::-webkit-slider-runnable-track {
+    height: 4px; border-radius: 4px; background: var(--surface-2);
+  }
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none; appearance: none;
+    width: 22px; height: 22px; margin-top: -9px;
+    border-radius: 50%; background: var(--surface);
+    border: 2px solid var(--sage);
+    box-shadow: var(--sh-2);
+  }
+  input[type="range"]::-moz-range-track { height: 4px; border-radius: 4px; background: var(--surface-2); }
+  input[type="range"]::-moz-range-thumb { width: 20px; height: 20px; border-radius: 50%; background: var(--surface); border: 2px solid var(--sage); }
+
+  .font-choice { display: flex; gap: 8px; }
+  .font-choice button {
+    flex: 1; padding: 11px 12px; border-radius: var(--r-sm);
+    border: 1.5px solid var(--line); background: var(--surface);
+    cursor: pointer; text-align: left; display: flex; flex-direction: column; gap: 3px;
+  }
+  .font-choice button[aria-pressed="true"] { border-color: var(--sage); background: var(--sage-wash); }
+  .font-choice b { font-size: 15px; font-weight: 600; }
+  .font-choice small { font-size: 10.5px; color: var(--ink-3); }
+  .font-choice .atkinson { font-family: "Atkinson Hyperlegible", sans-serif; }
+
+  .evidence {
+    border-left: 3px solid var(--sage-line);
+    padding: 2px 0 2px 12px;
+    font-size: 11.5px; line-height: 1.55; color: var(--ink-3);
+  }
+  .evidence b { color: var(--ink-2); font-weight: 600; }
+
+  .save-row { display: flex; gap: 9px; padding-top: 2px; }
+</style>
+</head>
+<body>
+<div class="workspace">
+
+  <div class="artboard" role="application" aria-label="NeuroPulse HE — Reading settings screen">
+
+    <div class="statusbar">
+      <span class="statusbar__time" data-clock>14:06</span>
+      <div class="statusbar__icons" aria-hidden="true">
+        <svg width="17" height="11" viewBox="0 0 17 11" fill="currentColor"><rect x="0" y="7" width="3" height="4" rx="1"/><rect x="4.6" y="5" width="3" height="6" rx="1"/><rect x="9.2" y="2.5" width="3" height="8.5" rx="1"/><rect x="13.8" y="0" width="3" height="11" rx="1"/></svg>
+        <svg width="16" height="12" viewBox="0 0 24 18" fill="currentColor"><path d="M12 15.5a1.9 1.9 0 1 1 0 3.8 1.9 1.9 0 0 1 0-3.8Zm0-5.4c2.1 0 4 .8 5.4 2.2l-1.5 1.5A5.7 5.7 0 0 0 12 12.1a5.7 5.7 0 0 0-3.9 1.7l-1.5-1.5A7.6 7.6 0 0 1 12 10.1Zm0-5.1c3.3 0 6.3 1.3 8.6 3.5l-1.5 1.5A10 10 0 0 0 12 7.1a10 10 0 0 0-7.1 2.9L3.4 8.5A12 12 0 0 1 12 5Z"/></svg>
+        <svg width="25" height="12" viewBox="0 0 25 12" fill="none"><rect x=".7" y=".7" width="20.6" height="10.6" rx="3" stroke="currentColor" stroke-width="1.2" opacity=".4"/><rect x="2.2" y="2.2" width="15.6" height="7.6" rx="1.8" fill="currentColor"/><path d="M23 4.2c.8.4 1.2 1 1.2 1.8s-.4 1.4-1.2 1.8V4.2Z" fill="currentColor" opacity=".5"/></svg>
+      </div>
+    </div>
+    <div class="island" aria-hidden="true"></div>
+
+    <header class="appbar">
+      <a class="icon-btn" href="08-sensory.html" aria-label="Back to Sensory">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg>
+      </a>
+      <span class="appbar__title">Reading</span>
+      <button class="icon-btn" aria-label="Save as my default" data-save>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5 9.5 17 19 7.5"/></svg>
+      </button>
+    </header>
+
+    <main class="content" style="gap:14px">
+
+      <div class="read-head">
+        <span class="eyebrow">Sensory · Typography</span>
+        <h1>Text that fits<br>your eyes.</h1>
+        <p>Change it once. It applies everywhere.</p>
+      </div>
+
+      <section class="preview" aria-label="Live preview" data-reading-preview>
+        <strong>These settings belong to you.</strong> Adjust size, spacing or typeface until reading feels effortless — then keep it.
+      </section>
+
+      <section class="card" aria-label="Typography controls">
+        <div class="control">
+          <div class="control__top">
+            <span class="control__label">Text size</span>
+            <span class="control__value" data-font-size-value>17px</span>
+          </div>
+          <input type="range" min="15" max="24" step="1" value="17" data-font-size aria-label="Text size">
+        </div>
+
+        <div class="control">
+          <div class="control__top">
+            <span class="control__label">Letter spacing</span>
+            <span class="control__value" data-tracking-value>0.00em</span>
+          </div>
+          <input type="range" min="0" max="12" step="1" value="0" data-tracking aria-label="Letter spacing">
+        </div>
+
+        <div class="control">
+          <div class="control__top"><span class="control__label">Typeface</span></div>
+          <div class="font-choice">
+            <button aria-pressed="true" data-reading-font='Inter, sans-serif' data-font-label="Inter">
+              <b>Inter</b><small>Balanced default</small>
+            </button>
+            <button aria-pressed="false" data-reading-font='"Atkinson Hyperlegible", sans-serif' data-font-label="Atkinson Hyperlegible">
+              <b class="atkinson">Atkinson</b><small>High legibility</small>
+            </button>
+          </div>
+        </div>
+
+        <div class="setting-row">
+          <div class="setting-row__text">
+            <span class="setting-row__title">OpenDyslexic</span>
+            <span class="setting-row__hint">Available on request — not enabled by default</span>
+          </div>
+          <button class="toggle" role="switch" aria-checked="false" aria-label="OpenDyslexic font" data-opendyslexic></button>
+        </div>
+      </section>
+
+      <p class="evidence"><b>Why is that switch off?</b> Wery and Diliberto (2017) found no reading-rate benefit over Arial or Times New Roman. Size and spacing have stronger support (Rello and Baeza-Yates, 2013).</p>
+
+
+    </main>
+
+    <nav class="tabbar" aria-label="Primary">
+      <a class="tab" href="01-today.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10.5 12 4l8 6.5V20a1 1 0 0 1-1 1h-4v-6H9v6H5a1 1 0 0 1-1-1v-9.5Z"/></svg>
+        Today
+      </a>
+      <a class="tab" href="02-plan.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6h13M8 12h13M8 18h13"/><circle cx="3.5" cy="6" r="1.2" fill="currentColor" stroke="none"/><circle cx="3.5" cy="12" r="1.2" fill="currentColor" stroke="none"/><circle cx="3.5" cy="18" r="1.2" fill="currentColor" stroke="none"/></svg>
+        Plan
+      </a>
+      <a class="tab" href="04-focus.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2"/><path d="M9 2h6"/></svg>
+        Focus
+      </a>
+      <a class="tab is-active" href="06-calm.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15c2.5-1.5 4-4 4-7a4 4 0 0 1 8 0c0 3 1.5 5.5 4 7"/><path d="M4 15h16"/><path d="M9 19h6"/></svg>
+        Calm
+      </a>
+    </nav>
+
+    <div class="homebar" aria-hidden="true"></div>
+    <div class="toast" role="status" aria-live="polite"></div>
+  </div>
+
+  <aside class="spec">
+    <div>
+      <span class="spec__kicker">Screen 07 / 09 · Reading</span>
+      <h1 class="spec__title">Evidence over gimmick</h1>
+      <p class="spec__intro">Typography is adjustable, and the default choice follows the strongest available evidence rather than the most marketed product.</p>
+    </div>
+
+    <div class="spec__card">
+      <h3>Research basis</h3>
+      <ul class="spec__list">
+        <li>Rello and Baeza-Yates (2013) found that typeface, size and spacing measurably affect reading speed and comprehension for dyslexic readers.</li>
+        <li>Wery and Diliberto (2017) found no reading-rate or accuracy benefit from OpenDyslexic in a controlled alternating-treatment design.</li>
+        <li>The design conclusion is therefore: default to legibility and user control, not to a novelty font.</li>
+      </ul>
+    </div>
+
+    <div class="spec__card">
+      <h3>Norman's principles</h3>
+      <div class="spec__principle"><span class="spec__tag">Feedback</span><p>Every slider updates the preview instantly, so the effect is visible before it is saved.</p></div>
+      <div class="spec__principle"><span class="spec__tag">Affordance</span><p>Sliders show their range and current value; toggles use the familiar iOS switch form.</p></div>
+      <div class="spec__principle"><span class="spec__tag">Consistency</span><p>One typographic system applies across all screens; nothing is adjusted per-screen.</p></div>
+    </div>
+
+    <div class="spec__card">
+      <h3>Interaction notes</h3>
+      <p>Drag either slider to restyle the preview live. Switching typeface applies immediately. The OpenDyslexic switch includes an inline rationale so the choice is informed rather than hidden.</p>
+    </div>
+  </aside>
+</div>
+
+<script src="ui.js"></script>
+<script>
+  document.querySelector('[data-save]')?.addEventListener('click', () => window.npToast('Saved as your default'));
+</script>
+<script>
+  // The real product ships OpenDyslexic; this HTML prototype substitutes
+  // the closest bundled high-legibility face and says so, rather than
+  // pretending a switch worked when it did not.
+  const od = document.querySelector('[data-opendyslexic]');
+  const preview = document.querySelector('[data-reading-preview]');
+  od.addEventListener('click', () => {
+    const on = od.getAttribute('aria-checked') === 'true';
+    preview.style.fontFamily = on ? '"Atkinson Hyperlegible", sans-serif' : 'Inter, sans-serif';
+    preview.style.letterSpacing = on ? '.06em' : '';
+    if (on) window.npToast('Prototype shows Atkinson Hyperlegible as the substitute');
+  });
+</script>
+</body>
+</html>

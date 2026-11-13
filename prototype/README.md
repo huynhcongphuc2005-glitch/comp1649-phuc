@@ -1,24 +1,56 @@
-# NeuroPulse HE — Native iOS Mobile UI Prototype (iPhone 17 Pro Max)
+# NeuroPulse HE — Nine-Screen UI Prototype (430 × 932)
 
-NeuroPulse is a neuro-adaptive executive function and sensory pacing app designed for neurodivergent university learners (ADHD, Autism, Dyslexia) in Higher Education.
+NeuroPulse HE is a neuro-adaptive planning, focus and sensory-regulation app for
+neurodivergent students in higher education (ADHD, autism, dyslexia). The
+prototype is built as nine standalone HTML screens, one file per screen, so each
+artboard can be opened, reviewed and marked in isolation. Nothing is bundled
+into a single interactive app.
 
-## Design Specification
-- **Hardware Target**: Apple iPhone 17 Pro Max (Strict 430 × 932 px Artboards)
-- **Standard**: Apple Human Interface Guidelines (HIG) iOS 18
-- **Typography**: San Francisco Pro (`-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text'`)
-- **Iconography**: Authentic Apple SF Symbols (Pure inline SVG vectors, 0 emojis, 0 AI glyphs)
-- **Framing**: Direct artboard rendering with zero external simulated phone chassis/bezels, optimized for direct Figma frame importing.
-- **Palette**: Royal Indigo `#4F46E5`, Focus Cyan `#0284C7`, Calm Sage `#D1FAE5`, OLED Charcoal `#0F172A`.
+## Design specification
 
-## 8 Standalone Screen Artboards (430 × 932 px)
-1. **`screen1_today.html`**: Today Dashboard with 3-Tier Cognitive Scaffolding (Beginner / Intermediate / Advanced), Next Immediate Action Hero Card, and Enrolled Academic Courses.
-2. **`screen2_course_detail.html`**: Academic Module Overview (HCI Literature Review CS3042), Word Count Target, AI Syllabus Deconstruction, and Course Milestones.
-3. **`screen3_task_breakdown.html`**: Linear Stepping Stone Checklist (15m chunks) preventing executive dysfunction and cognitive paralysis.
-4. **`screen4_micro_action.html`**: Single Micro-Action Detail (Step 2: ACM Digital Library Boolean Query) with clear tactile Start Sprint trigger.
-5. **`screen5_timer_active.html`**: Active Visual Focus Timer (11:42 countdown, SVG multi-stop circular progress, brown noise generator active).
-6. **`screen6_session_complete.html`**: Milestone Accomplishment & 3-Minute Rest Recovery Interval with dopamine positive reinforcement.
-7. **`screen7_overwhelm_mode.html`**: Sensory Overload Emergency Shield with CSS-animated 4-4-4-4 Box Breathing and muted deadlines.
-8. **`screen8_sensory_settings.html`**: Cognitive Scaffolding Tier Selector, OpenDyslexic toggle, Guided Fixation Reading, 4 Visual Arousal themes, and Canvas LMS sync.
+- **Hardware target**: iPhone-class artboard, 430 × 932 px, fixed height.
+- **Design tokens**: `core.css` (colour, type, spacing, radii, elevation).
+- **Typography**: Inter for UI; Atkinson Hyperlegible for long-form reading.
+- **Iconography**: inline SVG only — no emoji, no icon font.
+- **Palette**: warm off-white paper (`#F7F5EF`), ink (`#171E19`), sage accent
+  (`#476A55`). A warm and a night variant are included.
+- **Research basis**: every screen carries a right-hand spec rail naming the
+  studies behind the decisions, the Norman principles applied, and interaction
+  notes.
+- **Motion**: no decorative animation; transitions are short and are switched
+  off when "Reduce animation" is on.
 
-## Multi-Screen Canvas for Figma Review
-- **`all_screens.html`**: Side-by-side Figma dark studio canvas (`#07090E`) displaying all 8 artboards concurrently with individual fullscreen inspection triggers.
+## Screens
+
+| # | File | Purpose |
+|---|------|---------|
+| 01 | `01-today.html` | Today: one next action, a realistic load, no overdue backlog. |
+| 02 | `02-plan.html` | Plan: work broken into 15–25 minute steps across the week. |
+| 03 | `03-step.html` | Step detail: what "done" looks like, materials, and a single start button. |
+| 04 | `04-focus.html` | Focus: a timer that shows remaining time without pressure. |
+| 05 | `05-rest.html` | Rest: a deliberate, guilt-free break between steps. |
+| 06 | `06-calm.html` | Calm: a low-demand reset surface with paced breathing. |
+| 07 | `07-reading.html` | Reading: size, spacing and typeface controls, with rationale. |
+| 08 | `08-sensory.html` | Sensory: colour, motion and sound settings that apply live. |
+| 09 | `09-support.html` | Support: progress without streaks, plus routes to human help. |
+
+## Review surfaces
+
+- `index.html` — prototype map: live thumbnails, journeys, design rationale and
+  the Harvard reference list used across the screens.
+- Append `#embed` to any screen URL (e.g. `01-today.html#embed`) to hide the
+  spec rail and render the artboard alone, which is how the report figures were
+  captured.
+
+## Shared behaviour
+
+`ui.js` holds the small interactions shared by the screens: live clock, theme
+switching, segmented controls, switches, checklist state, timer, breathing
+pacer and reading controls. State is deliberately in-memory only; persistence
+is out of scope for the prototype.
+
+## Running
+
+Open `index.html` directly in a browser. There is no build step and no
+dependency beyond the Google Fonts stylesheet. For figure capture the screens
+were rendered in headless Chrome at `1200 × 1180`.

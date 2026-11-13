@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="paper">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>03 · Step detail — NeuroPulse HE</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="core.css">
+<style>
+  .step-head { display: flex; flex-direction: column; gap: 10px; padding-top: 4px; }
+  .step-head h1 { font-size: 25px; line-height: 1.24; font-weight: 650; letter-spacing: -.026em; }
+  .step-head .lede { font-size: 14.5px; }
+  .meta-row { display: flex; gap: 7px; flex-wrap: wrap; }
+  .pill {
+    display: inline-flex; align-items: center; gap: 6px;
+    height: 28px; padding: 0 11px; border-radius: var(--r-pill);
+    font-size: 11.5px; font-weight: 600;
+    background: var(--surface-2); color: var(--ink-2);
+  }
+  .pill--sage { background: var(--sage-wash); color: var(--sage-deep); }
+
+  .outcome-list { display: flex; flex-direction: column; gap: 2px; }
+  .outcome {
+    display: grid; grid-template-columns: 24px 1fr; gap: 11px;
+    align-items: start; padding: 8px 0; cursor: pointer;
+    border-bottom: 1px solid var(--line-soft);
+  }
+  .outcome:last-child { border-bottom: 0; }
+  .outcome.is-done .outcome__text { color: var(--ink-3); text-decoration: line-through; text-decoration-thickness: 1.3px; }
+  .outcome.is-done .check { background: var(--sage); border-color: var(--sage); color: #fff; }
+  .outcome__text { font-size: 14px; line-height: 1.45; }
+
+  .split-row {
+    display: flex; align-items: center; justify-content: space-between; gap: 10px;
+    padding: 2px 4px 0;
+  }
+  .split-row span { font-size: 12.5px; color: var(--ink-3); }
+  .split-row button {
+    border: 0; background: transparent; padding: 6px 0;
+    font-size: 12.5px; font-weight: 650; color: var(--sage-deep);
+    text-decoration: underline; text-underline-offset: 3px; cursor: pointer;
+  }
+
+  .where { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; }
+  .where a {
+    display: flex; flex-direction: column; gap: 3px;
+    padding: 12px 13px; border: 1px solid var(--line); border-radius: var(--r-sm);
+    text-decoration: none; background: var(--surface);
+  }
+  .where b { font-size: 12.5px; font-weight: 650; }
+  .where small { font-size: 11px; color: var(--ink-3); }
+
+  .split-note {
+    border: 1px dashed var(--sage-line);
+    background: var(--sage-wash);
+    border-radius: var(--r-md);
+    padding: 14px 15px;
+    display: flex; flex-direction: column; gap: 9px;
+  }
+  .split-note p { font-size: 12.5px; line-height: 1.5; color: var(--ink-2); }
+  .split-note .btn { min-height: 40px; align-self: flex-start; font-size: 13px; }
+  .cta-dock { padding-top: 2px; }
+</style>
+</head>
+<body>
+<div class="workspace">
+
+  <div class="artboard" role="application" aria-label="NeuroPulse HE — Step detail screen">
+
+    <div class="statusbar">
+      <span class="statusbar__time" data-clock>14:06</span>
+      <div class="statusbar__icons" aria-hidden="true">
+        <svg width="17" height="11" viewBox="0 0 17 11" fill="currentColor"><rect x="0" y="7" width="3" height="4" rx="1"/><rect x="4.6" y="5" width="3" height="6" rx="1"/><rect x="9.2" y="2.5" width="3" height="8.5" rx="1"/><rect x="13.8" y="0" width="3" height="11" rx="1"/></svg>
+        <svg width="16" height="12" viewBox="0 0 24 18" fill="currentColor"><path d="M12 15.5a1.9 1.9 0 1 1 0 3.8 1.9 1.9 0 0 1 0-3.8Zm0-5.4c2.1 0 4 .8 5.4 2.2l-1.5 1.5A5.7 5.7 0 0 0 12 12.1a5.7 5.7 0 0 0-3.9 1.7l-1.5-1.5A7.6 7.6 0 0 1 12 10.1Zm0-5.1c3.3 0 6.3 1.3 8.6 3.5l-1.5 1.5A10 10 0 0 0 12 7.1a10 10 0 0 0-7.1 2.9L3.4 8.5A12 12 0 0 1 12 5Z"/></svg>
+        <svg width="25" height="12" viewBox="0 0 25 12" fill="none"><rect x=".7" y=".7" width="20.6" height="10.6" rx="3" stroke="currentColor" stroke-width="1.2" opacity=".4"/><rect x="2.2" y="2.2" width="15.6" height="7.6" rx="1.8" fill="currentColor"/><path d="M23 4.2c.8.4 1.2 1 1.2 1.8s-.4 1.4-1.2 1.8V4.2Z" fill="currentColor" opacity=".5"/></svg>
+      </div>
+    </div>
+    <div class="island" aria-hidden="true"></div>
+
+    <header class="appbar">
+      <a class="icon-btn" href="02-plan.html" aria-label="Back to Plan">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg>
+      </a>
+      <span class="appbar__title">Step 3 of 6</span>
+      <button class="icon-btn" aria-label="Step options">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="1.7"/><circle cx="12" cy="12" r="1.7"/><circle cx="19" cy="12" r="1.7"/></svg>
+      </button>
+    </header>
+
+    <main class="content" style="gap:14px">
+
+      <div class="step-head">
+        <div class="meta-row">
+          <span class="pill pill--sage">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="8.5"/><path d="M12 8v4l2.4 1.6"/></svg>
+            <span data-step-duration>15 min</span>
+          </span>
+          <span class="pill">Reading</span>
+          <span class="pill">No writing needed</span>
+        </div>
+        <h1>Find three peer-reviewed papers</h1>
+        <p class="lede">Finished means three papers saved, with one sentence each on why they matter.</p>
+      </div>
+
+      <section class="card" aria-labelledby="done-title">
+        <div class="card__top">
+          <h2 class="card__title" id="done-title" style="font-size:14px;">Finished looks like</h2>
+          <span class="eyebrow">0 / 3</span>
+        </div>
+        <div class="outcome-list" data-outcome-list>
+          <div class="outcome" role="checkbox" aria-checked="false" tabindex="0">
+            <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+            <span class="outcome__text">One paper saved, with a sentence on why it matters to your design</span>
+          </div>
+          <div class="outcome" role="checkbox" aria-checked="false" tabindex="0">
+            <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+            <span class="outcome__text">A second paper that disagrees with the first one</span>
+          </div>
+          <div class="outcome" role="checkbox" aria-checked="false" tabindex="0">
+            <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+            <span class="outcome__text">A third paper you can cite in the annotated bibliography</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="card" aria-labelledby="query-title">
+        <div class="card__top" style="margin-bottom:8px">
+          <h2 class="card__title" id="query-title" style="font-size:14px;">Search terms</h2>
+          <span class="eyebrow">tap to copy</span>
+        </div>
+        <div class="chip-row">
+          <button class="chip" data-copy-text='"neurodiversity" AND "higher education" AND "interface"'>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+            neurodiversity + HE
+          </button>
+          <button class="chip" data-copy-text='"ADHD" AND "university students" AND "assistive technology"'>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+            ADHD + university
+          </button>
+          <button class="chip" data-copy-text='"autism" AND "participatory design" AND "students"'>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+            autism + co-design
+          </button>
+        </div>
+      </section>
+
+
+      <div class="split-row">
+        <span>Still too big?</span>
+        <button data-split>Split into 5-minute steps</button>
+      </div>
+
+      <div class="cta-dock">
+        <a class="btn btn--primary btn--block" href="04-focus.html">
+          <svg class="btn__icon" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg><span>Start <span data-cta-duration>15</span>-minute focus</span>
+        </a>
+      </div>
+
+    </main>
+
+    <nav class="tabbar" aria-label="Primary">
+      <a class="tab" href="01-today.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10.5 12 4l8 6.5V20a1 1 0 0 1-1 1h-4v-6H9v6H5a1 1 0 0 1-1-1v-9.5Z"/></svg>
+        Today
+      </a>
+      <a class="tab is-active" href="02-plan.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6h13M8 12h13M8 18h13"/><circle cx="3.5" cy="6" r="1.2" fill="currentColor" stroke="none"/><circle cx="3.5" cy="12" r="1.2" fill="currentColor" stroke="none"/><circle cx="3.5" cy="18" r="1.2" fill="currentColor" stroke="none"/></svg>
+        Plan
+      </a>
+      <a class="tab" href="04-focus.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2"/><path d="M9 2h6"/></svg>
+        Focus
+      </a>
+      <a class="tab" href="06-calm.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15c2.5-1.5 4-4 4-7a4 4 0 0 1 8 0c0 3 1.5 5.5 4 7"/><path d="M4 15h16"/><path d="M9 19h6"/></svg>
+        Calm
+      </a>
+    </nav>
+
+    <div class="homebar" aria-hidden="true"></div>
+    <div class="toast" role="status" aria-live="polite"></div>
+  </div>
+
+  <aside class="spec">
+    <div>
+      <span class="spec__kicker">Screen 03 / 09 · Step detail</span>
+      <h1 class="spec__title">Removing ambiguity</h1>
+      <p class="spec__intro">The detail view answers the three questions that stall task initiation: what exactly do I do, how will I know it is done, and how small can it get?</p>
+    </div>
+
+    <div class="spec__card">
+      <h3>Research basis</h3>
+      <ul class="spec__list">
+        <li>Morris, Begel and Wiedermann (2015): unclear requirements are a primary barrier reported by neurodiverse employees, more than technical difficulty.</li>
+        <li>Teevan, Iqbal and von Veh (2016): micro-tasks work best when the completion state is unambiguous.</li>
+        <li>Spiel et al. (2022): the user keeps authority — the split is offered, never forced.</li>
+      </ul>
+    </div>
+
+    <div class="spec__card">
+      <h3>Norman's principles</h3>
+      <div class="spec__principle"><span class="spec__tag">Affordance</span><p>Checkboxes look tickable; the search strings expose a visible Copy action rather than hidden long-press.</p></div>
+      <div class="spec__principle"><span class="spec__tag">Visibility</span><p>The completion criteria sit above the search tools, so the goal is visible before the method.</p></div>
+      <div class="spec__principle"><span class="spec__tag">Constraints</span><p>"No writing needed" explicitly rules out the behaviour that makes this step feel larger than it is.</p></div>
+    </div>
+
+    <div class="spec__card">
+      <h3>Interaction notes</h3>
+      <p>Ticking all three outcomes prepares the completion state. <em>Split</em> rewrites the duration to 5 minutes and updates the primary button label — a live demonstration of a self-imposed constraint.</p>
+    </div>
+  </aside>
+</div>
+
+<script src="ui.js"></script>
+<script>
+  // Local: outcome checklist counter
+  const outcomes = document.querySelectorAll('.outcome');
+  outcomes.forEach((o) => {
+    const toggle = () => {
+      o.classList.toggle('is-done');
+      o.setAttribute('aria-checked', String(o.classList.contains('is-done')));
+      const done = [...outcomes].filter((x) => x.classList.contains('is-done')).length;
+      document.querySelector('.card__top .eyebrow').textContent = done + ' / 3';
+    };
+    o.addEventListener('click', toggle);
+    o.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); } });
+  });
+
+  // Local: copy search strings
+  document.querySelectorAll('[data-copy-text]').forEach((b) => {
+    b.addEventListener('click', () => {
+      navigator.clipboard?.writeText(b.dataset.copyText);
+      window.npToast('Search string copied');
+    });
+  });
+
+  // Local: split into smaller steps
+  document.querySelector('[data-split]')?.addEventListener('click', () => {
+    document.querySelectorAll('[data-step-duration], [data-cta-duration]').forEach((el) => (el.textContent = '5'));
+    window.npToast('Split into three 5-minute searches');
+  });
+</script>
+</body>
+</html>

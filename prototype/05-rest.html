@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="paper">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>05 · Step complete — NeuroPulse HE</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="core.css">
+<style>
+  .done-hero {
+    display: flex; flex-direction: column; align-items: center; text-align: center;
+    gap: 10px; padding: 18px 8px 4px;
+  }
+  .done-mark {
+    width: 76px; height: 76px; border-radius: 50%;
+    background: var(--sage-wash);
+    border: 1px solid var(--sage-line);
+    display: grid; place-items: center;
+    color: var(--sage-deep);
+    margin-bottom: 4px;
+  }
+  .done-mark svg { width: 34px; height: 34px; }
+  .done-hero h1 { font-size: 28px; font-weight: 650; letter-spacing: -.03em; line-height: 1.2; }
+  .done-hero p { font-size: 14.5px; line-height: 1.55; color: var(--ink-2); max-width: 31ch; }
+
+  .summary { display: flex; flex-direction: column; gap: 0; }
+  .summary__row {
+    display: flex; align-items: baseline; justify-content: space-between; gap: 12px;
+    padding: 13px 0; border-bottom: 1px solid var(--line-soft);
+  }
+  .summary__row:last-child { border-bottom: 0; }
+  .summary__label { font-size: 13px; color: var(--ink-2); }
+  .summary__value { font-size: 14px; font-weight: 650; }
+
+  .next-up {
+    display: flex; gap: 12px; align-items: flex-start;
+    padding: 15px 16px; border-radius: var(--r-md);
+    background: var(--surface-2);
+  }
+  .next-up__icon { flex: 0 0 30px; height: 30px; border-radius: 9px; background: var(--surface); display: grid; place-items: center; color: var(--sage-deep); }
+  .next-up__body { display: flex; flex-direction: column; gap: 2px; }
+  .next-up__body b { font-size: 13.5px; font-weight: 600; line-height: 1.4; }
+  .next-up__body span { font-size: 11.5px; color: var(--ink-3); }
+
+  .break-card {
+    border: 1px solid var(--sage-line);
+    background: var(--sage-wash);
+    border-radius: var(--r-lg);
+    padding: 16px;
+    display: flex; align-items: center; gap: 14px;
+  }
+  .break-clock {
+    font-size: 27px; font-weight: 300; letter-spacing: -.03em;
+    font-variant-numeric: tabular-nums; color: var(--sage-deep);
+    min-width: 74px;
+  }
+  .break-copy { flex: 1; display: flex; flex-direction: column; gap: 2px; }
+  .break-copy b { font-size: 13.5px; font-weight: 650; }
+  .break-copy span { font-size: 11.5px; color: var(--ink-2); }
+  .btn--small { min-height: 38px; font-size: 12.5px; padding: 0 14px; border-radius: 10px; }
+
+  .gentle { font-size: 11.5px; line-height: 1.55; color: var(--ink-3); text-align: center; padding: 0 12px; }
+</style>
+</head>
+<body>
+<div class="workspace">
+
+  <div class="artboard" role="application" aria-label="NeuroPulse HE — Step complete screen">
+
+    <div class="statusbar">
+      <span class="statusbar__time" data-clock>14:06</span>
+      <div class="statusbar__icons" aria-hidden="true">
+        <svg width="17" height="11" viewBox="0 0 17 11" fill="currentColor"><rect x="0" y="7" width="3" height="4" rx="1"/><rect x="4.6" y="5" width="3" height="6" rx="1"/><rect x="9.2" y="2.5" width="3" height="8.5" rx="1"/><rect x="13.8" y="0" width="3" height="11" rx="1"/></svg>
+        <svg width="16" height="12" viewBox="0 0 24 18" fill="currentColor"><path d="M12 15.5a1.9 1.9 0 1 1 0 3.8 1.9 1.9 0 0 1 0-3.8Zm0-5.4c2.1 0 4 .8 5.4 2.2l-1.5 1.5A5.7 5.7 0 0 0 12 12.1a5.7 5.7 0 0 0-3.9 1.7l-1.5-1.5A7.6 7.6 0 0 1 12 10.1Zm0-5.1c3.3 0 6.3 1.3 8.6 3.5l-1.5 1.5A10 10 0 0 0 12 7.1a10 10 0 0 0-7.1 2.9L3.4 8.5A12 12 0 0 1 12 5Z"/></svg>
+        <svg width="25" height="12" viewBox="0 0 25 12" fill="none"><rect x=".7" y=".7" width="20.6" height="10.6" rx="3" stroke="currentColor" stroke-width="1.2" opacity=".4"/><rect x="2.2" y="2.2" width="15.6" height="7.6" rx="1.8" fill="currentColor"/><path d="M23 4.2c.8.4 1.2 1 1.2 1.8s-.4 1.4-1.2 1.8V4.2Z" fill="currentColor" opacity=".5"/></svg>
+      </div>
+    </div>
+    <div class="island" aria-hidden="true"></div>
+
+    <header class="appbar">
+      <div class="appbar__spacer"></div>
+      <span class="appbar__title">Step complete</span>
+      <a class="icon-btn" href="01-today.html" aria-label="Close">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </a>
+    </header>
+
+    <main class="content">
+
+      <div class="done-hero">
+        <div class="done-mark">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5 9.5 18 20 6.5"/></svg>
+        </div>
+        <h1>That step is done.</h1>
+        <p>You found three papers. That was the part that felt heaviest this morning.</p>
+      </div>
+
+      <section class="card" aria-label="Step summary">
+        <div class="summary">
+          <div class="summary__row"><span class="summary__label">Time focused</span><span class="summary__value">15 min</span></div>
+          <div class="summary__row"><span class="summary__label">Coursework progress</span><span class="summary__value">3 of 6 steps</span></div>
+          <div class="meter" style="margin-top:2px" role="img" aria-label="Half complete"><div class="meter__fill" style="width:50%"></div></div>
+        </div>
+      </section>
+
+      <div class="break-card">
+        <span class="break-clock" data-break-clock>3:00</span>
+        <div class="break-copy">
+          <b>Step away for three minutes</b>
+          <span>Stand up, look out of the window, drink something.</span>
+        </div>
+        <button class="btn btn--secondary btn--small" data-break-start>Start</button>
+      </div>
+
+      <div class="section-label"><h2>Next step</h2><span>not now</span></div>
+      <div class="next-up">
+        <span class="next-up__icon">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M5 4h9l5 5v11a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1Z"/><path d="M14 4v5h5"/><path d="M8 13h7M8 17h5"/></svg>
+        </span>
+        <span class="next-up__body">
+          <b>Skim each paper and note one design implication</b>
+          <span>15 min · Reading</span>
+        </span>
+      </div>
+
+      <a class="btn btn--primary btn--block" href="01-today.html">Back to Today</a>
+      <p class="gentle">Stopping here is a valid day. Your progress is saved and nothing will be marked as missed.</p>
+
+    </main>
+
+    <nav class="tabbar" aria-label="Primary">
+      <a class="tab is-active" href="01-today.html" aria-current="page">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10.5 12 4l8 6.5V20a1 1 0 0 1-1 1h-4v-6H9v6H5a1 1 0 0 1-1-1v-9.5Z"/></svg>
+        Today
+      </a>
+      <a class="tab" href="02-plan.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6h13M8 12h13M8 18h13"/><circle cx="3.5" cy="6" r="1.2" fill="currentColor" stroke="none"/><circle cx="3.5" cy="12" r="1.2" fill="currentColor" stroke="none"/><circle cx="3.5" cy="18" r="1.2" fill="currentColor" stroke="none"/></svg>
+        Plan
+      </a>
+      <a class="tab" href="04-focus.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2"/><path d="M9 2h6"/></svg>
+        Focus
+      </a>
+      <a class="tab" href="06-calm.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15c2.5-1.5 4-4 4-7a4 4 0 0 1 8 0c0 3 1.5 5.5 4 7"/><path d="M4 15h16"/><path d="M9 19h6"/></svg>
+        Calm
+      </a>
+    </nav>
+
+    <div class="homebar" aria-hidden="true"></div>
+    <div class="toast" role="status" aria-live="polite"></div>
+  </div>
+
+  <aside class="spec">
+    <div>
+      <span class="spec__kicker">Screen 05 / 09 · Completion</span>
+      <h1 class="spec__title">Closing the loop</h1>
+      <p class="spec__intro">Completion is acknowledged in one sentence, with no confetti, no score, and no streak that can be broken. The next step is previewed but explicitly deferred.</p>
+    </div>
+
+    <div class="spec__card">
+      <h3>Research basis</h3>
+      <ul class="spec__list">
+        <li>Zervogianni et al. (2020) identify engagement as one of three evidence categories the autism community expects from digital support — measured by continued, voluntary use rather than compulsion.</li>
+        <li>Spiel et al. (2022): reward mechanics that punish rest reinforce neuro-normative productivity norms.</li>
+        <li>Sweller (1988): a single summary removes the need to reconstruct what was achieved.</li>
+      </ul>
+    </div>
+
+    <div class="spec__card">
+      <h3>Norman's principles</h3>
+      <div class="spec__principle"><span class="spec__tag">Feedback</span><p>The tick, the confirmation sentence and the progress meter all confirm the same event, immediately.</p></div>
+      <div class="spec__principle"><span class="spec__tag">Constraints</span><p>Only two exits are offered: take a break, or return to Today. There is no "keep going" pressure.</p></div>
+      <div class="spec__principle"><span class="spec__tag">Visibility</span><p>The completed step and the next step are shown together so the plan still makes sense.</p></div>
+    </div>
+
+    <div class="spec__card">
+      <h3>Interaction notes</h3>
+      <p><em>Start</em> runs a three-minute rest countdown in place. <em>Back to Today</em> returns to screen 01 with the plan advanced.</p>
+    </div>
+  </aside>
+</div>
+
+<script src="ui.js"></script>
+<script>
+  // Local three-minute break countdown
+  const clock = document.querySelector('[data-break-clock]');
+  const start = document.querySelector('[data-break-start]');
+  let left = 180, handle = null, running = false;
+
+  const paint = () => {
+    clock.textContent = Math.floor(left / 60) + ':' + String(left % 60).padStart(2, '0');
+  };
+
+  start.addEventListener('click', () => {
+    if (running) {
+      clearInterval(handle); running = false; start.textContent = 'Start'; return;
+    }
+    running = true; start.textContent = 'Pause';
+    handle = setInterval(() => {
+      left -= 1;
+      if (left <= 0) {
+        clearInterval(handle); running = false; left = 0; paint();
+        start.textContent = 'Again';
+        window.npToast('Break over — no rush.');
+        return;
+      }
+      paint();
+    }, 1000);
+  });
+  paint();
+</script>
+</body>
+</html>

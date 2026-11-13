@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="paper">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>01 · Today — NeuroPulse HE</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="core.css">
+<style>
+  .hero {
+    background: var(--surface);
+    border: 1px solid var(--sage-line);
+    border-radius: var(--r-xl);
+    padding: 22px 20px 18px;
+    box-shadow: var(--sh-2);
+    display: flex; flex-direction: column; gap: 14px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::after {
+    content: "";
+    position: absolute; inset: auto -40px -60px auto;
+    width: 170px; height: 170px; border-radius: 50%;
+    background: var(--sage-wash);
+    opacity: .55;
+    z-index: 0;
+  }
+  .hero > * { position: relative; z-index: 1; }
+  .hero__tag {
+    display: inline-flex; align-items: center; gap: 7px;
+    align-self: flex-start;
+    padding: 5px 11px 5px 9px;
+    border-radius: var(--r-pill);
+    background: var(--sage-wash);
+    color: var(--sage-deep);
+    font-size: 11px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase;
+  }
+  .hero__title { font-size: 22px; line-height: 1.28; font-weight: 650; letter-spacing: -.022em; }
+  .hero__meta { font-size: 13px; color: var(--ink-2); display: flex; align-items: center; gap: 7px; flex-wrap: wrap; }
+  .hero__actions { display: flex; gap: 9px; margin-top: 2px; }
+  .hero__actions .btn--primary { flex: 1.35; }
+  .hero__actions .btn--secondary { flex: 1; }
+  .hero__why {
+    font-size: 12.5px; line-height: 1.5; color: var(--ink-3);
+    border-top: 1px solid var(--line-soft);
+    padding-top: 12px;
+  }
+  .hero__why strong { color: var(--ink-2); font-weight: 600; }
+
+  .module {
+    display: flex; flex-direction: column; gap: 9px;
+    padding: 15px 16px;
+    border: 1px solid var(--line);
+    border-radius: var(--r-md);
+    background: var(--surface);
+    text-decoration: none;
+  }
+  .module + .module { margin-top: 9px; }
+  .module__top { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+  .module__code { font-size: 11px; font-weight: 700; letter-spacing: .06em; color: var(--ink-3); }
+  .module__due { font-size: 11.5px; color: var(--ink-3); }
+  .module__name { font-size: 14.5px; font-weight: 600; line-height: 1.35; letter-spacing: -.01em; }
+  .quiet-note {
+    display: flex; gap: 10px; align-items: flex-start;
+    padding: 13px 15px;
+    border-radius: var(--r-md);
+    background: var(--surface-2);
+    font-size: 12.5px; line-height: 1.5; color: var(--ink-2);
+  }
+  .quiet-note svg { flex: 0 0 16px; margin-top: 1px; color: var(--sage); }
+  .calm-banner { display: none; }
+  .artboard[data-quiet="true"] .calm-banner { display: flex; }
+  .artboard[data-quiet="true"] .modules-block { display: none; }
+  .artboard[data-quiet="true"] .hero__why { display: none; }
+</style>
+</head>
+<body>
+<div class="workspace">
+
+  <div class="artboard" role="application" aria-label="NeuroPulse HE — Today screen">
+
+    <div class="statusbar">
+      <span class="statusbar__time" data-clock>14:06</span>
+      <div class="statusbar__icons" aria-hidden="true">
+        <svg width="17" height="11" viewBox="0 0 17 11" fill="currentColor"><rect x="0" y="7" width="3" height="4" rx="1"/><rect x="4.6" y="5" width="3" height="6" rx="1"/><rect x="9.2" y="2.5" width="3" height="8.5" rx="1"/><rect x="13.8" y="0" width="3" height="11" rx="1"/></svg>
+        <svg width="16" height="12" viewBox="0 0 24 18" fill="currentColor"><path d="M12 15.5a1.9 1.9 0 1 1 0 3.8 1.9 1.9 0 0 1 0-3.8Zm0-5.4c2.1 0 4 .8 5.4 2.2l-1.5 1.5A5.7 5.7 0 0 0 12 12.1a5.7 5.7 0 0 0-3.9 1.7l-1.5-1.5A7.6 7.6 0 0 1 12 10.1Zm0-5.1c3.3 0 6.3 1.3 8.6 3.5l-1.5 1.5A10 10 0 0 0 12 7.1a10 10 0 0 0-7.1 2.9L3.4 8.5A12 12 0 0 1 12 5Z"/></svg>
+        <svg width="25" height="12" viewBox="0 0 25 12" fill="none"><rect x=".7" y=".7" width="20.6" height="10.6" rx="3" stroke="currentColor" stroke-width="1.2" opacity=".4"/><rect x="2.2" y="2.2" width="15.6" height="7.6" rx="1.8" fill="currentColor"/><path d="M23 4.2c.8.4 1.2 1 1.2 1.8s-.4 1.4-1.2 1.8V4.2Z" fill="currentColor" opacity=".5"/></svg>
+      </div>
+    </div>
+    <div class="island" aria-hidden="true"></div>
+
+    <header class="appbar">
+      <div class="appbar__spacer"></div>
+      <span class="appbar__title">Today</span>
+      <a class="icon-btn icon-btn--bordered" href="08-sensory.html" aria-label="Sensory settings">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="3.2"/><path d="M19.4 15a1.6 1.6 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.6 1.6 0 0 0-1.8-.3 1.6 1.6 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.6 1.6 0 0 0-1-1.5 1.6 1.6 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.6 1.6 0 0 0 .3-1.8 1.6 1.6 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.6 1.6 0 0 0 1.5-1 1.6 1.6 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.6 1.6 0 0 0 1.8.3H9a1.6 1.6 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.6 1.6 0 0 0 1 1.5 1.6 1.6 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.6 1.6 0 0 0-.3 1.8V9a1.6 1.6 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.6 1.6 0 0 0-1.5 1Z"/></svg>
+      </a>
+    </header>
+
+    <main class="content">
+
+      <div class="page-head">
+        <span class="eyebrow">Friday 13 November</span>
+        <h1 class="display">One thing<br>at a time.</h1>
+        <p class="lede">Good afternoon, Alex. Three steps are planned today. Only the first one is on this screen.</p>
+      </div>
+
+      <!-- Energy check-in -->
+      <section class="card card--quiet" aria-labelledby="checkin-label">
+        <div class="card__top">
+          <h2 class="card__title" id="checkin-label" style="font-size:14px;">How full is your head?</h2>
+          <span class="eyebrow">10 seconds</span>
+        </div>
+        <div class="chip-row" data-select-group>
+          <button class="chip is-active" data-select aria-pressed="true" data-toast="Noted: steady. Keeping the full plan visible.">
+            <span class="chip__dot" style="background:#476A55"></span>Clear
+          </button>
+          <button class="chip" data-select aria-pressed="false" data-toast="Noted: frayed. Fewer decisions offered.">
+            <span class="chip__dot" style="background:#87672E"></span>Frayed
+          </button>
+          <button class="chip" data-select data-overload aria-pressed="false" data-toast="Calm mode suggested.">
+            <span class="chip__dot" style="background:#9C5F49"></span>Overloaded
+          </button>
+        </div>
+      </section>
+
+      <div class="quiet-note calm-banner" role="status">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 15c2.5-1.5 4-4 4-7a4 4 0 0 1 8 0c0 3 1.5 5.5 4 7"/><path d="M4 15h16"/><path d="M9 19h6"/></svg>
+        <span>Calmer layout on. Modules and secondary detail are hidden. <a href="06-calm.html" style="color:var(--sage-deep);font-weight:600;">Open Calm →</a></span>
+      </div>
+
+      <!-- Next action -->
+      <section class="hero" aria-labelledby="next-title">
+        <span class="hero__tag">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="7"/></svg>
+          Next step · 12 min
+        </span>
+        <h2 class="hero__title" id="next-title">Open the COMP1649 brief and read the marking rubric</h2>
+        <p class="hero__meta">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5V5.5Z"/><path d="M4 20.5V5.5"/></svg>
+          Human–Computer Interaction · Step 1 of 6
+        </p>
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="04-focus.html">
+            <svg class="btn__icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+            Start focus
+          </a>
+          <a class="btn btn--secondary" href="03-step.html">Step details</a>
+        </div>
+        <p class="hero__why"><strong>Why only this?</strong> You told us long lists make starting harder. Everything after this step is still saved — it just isn't competing for attention.</p>
+      </section>
+
+      <div class="modules-block">
+        <div class="section-label">
+          <h2>Your modules</h2>
+          <span>2 active</span>
+        </div>
+
+        <a class="module" href="02-plan.html">
+          <div class="module__top">
+            <span class="module__code">COMP1649 · HCI</span>
+            <span class="module__due">Due 27 Nov</span>
+          </div>
+          <span class="module__name">Coursework report &amp; prototype</span>
+          <div class="meter" role="img" aria-label="2 of 6 steps complete"><div class="meter__fill" style="width:33%"></div></div>
+          <div class="meter-row"><span>2 of 6 steps</span><span>1h 10m planned</span></div>
+        </a>
+
+        <a class="module" href="02-plan.html">
+          <div class="module__top">
+            <span class="module__code">COMP1648 · Data Science</span>
+            <span class="module__due">Due 4 Dec</span>
+          </div>
+          <span class="module__name">Regression coursework</span>
+          <div class="meter" role="img" aria-label="1 of 5 steps complete"><div class="meter__fill" style="width:20%"></div></div>
+          <div class="meter-row"><span>1 of 5 steps</span><span>Not due this week</span></div>
+        </a>
+      </div>
+
+    </main>
+
+    <nav class="tabbar" aria-label="Primary">
+      <a class="tab is-active" href="01-today.html" aria-current="page">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10.5 12 4l8 6.5V20a1 1 0 0 1-1 1h-4v-6H9v6H5a1 1 0 0 1-1-1v-9.5Z"/></svg>
+        Today
+      </a>
+      <a class="tab" href="02-plan.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6h13M8 12h13M8 18h13"/><circle cx="3.5" cy="6" r="1.2" fill="currentColor" stroke="none"/><circle cx="3.5" cy="12" r="1.2" fill="currentColor" stroke="none"/><circle cx="3.5" cy="18" r="1.2" fill="currentColor" stroke="none"/></svg>
+        Plan
+      </a>
+      <a class="tab" href="04-focus.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2"/><path d="M9 2h6"/></svg>
+        Focus
+      </a>
+      <a class="tab" href="06-calm.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15c2.5-1.5 4-4 4-7a4 4 0 0 1 8 0c0 3 1.5 5.5 4 7"/><path d="M4 15h16"/><path d="M9 19h6"/></svg>
+        Calm
+      </a>
+    </nav>
+
+    <div class="homebar" aria-hidden="true"></div>
+    <div class="toast" role="status" aria-live="polite"></div>
+  </div>
+
+  <!-- ============ SPECIFICATION RAIL ============ -->
+  <aside class="spec">
+    <div>
+      <span class="spec__kicker">Screen 01 / 09 · Today</span>
+      <h1 class="spec__title">The calm default</h1>
+      <p class="spec__intro">The home view is deliberately under-populated. It renders a single next action, an optional energy check-in, and a collapsed module list — the minimum needed to begin work.</p>
+    </div>
+
+    <div class="spec__card">
+      <h3>Research basis</h3>
+      <ul class="spec__list">
+        <li>Morris, Begel and Wiedermann (2015) found that neurodiverse knowledge workers are blocked less by task difficulty than by ambiguous, cluttered interfaces.</li>
+        <li>Sweller (1988): removing extraneous elements protects working memory for the task itself.</li>
+        <li>Spiel et al. (2022) warn against deficit framing — the screen offers control, not correction.</li>
+      </ul>
+    </div>
+
+    <div class="spec__card">
+      <h3>Norman's principles</h3>
+      <div class="spec__principle"><span class="spec__tag">Visibility</span><p>The next physical action is the largest element on screen; nothing else is above it.</p></div>
+      <div class="spec__principle"><span class="spec__tag">Constraints</span><p>One start button. Secondary modules sit below the fold and collapse entirely in quiet mode.</p></div>
+      <div class="spec__principle"><span class="spec__tag">Feedback</span><p>The check-in chip confirms the choice inline; the layout changes immediately.</p></div>
+    </div>
+
+    <div class="spec__card">
+      <h3>Interaction notes</h3>
+      <p>Selecting <em>Overloaded</em> hides the module block and reveals the Calm entry point. <em>Start focus</em> continues to screen 04 at 12 minutes.</p>
+    </div>
+  </aside>
+</div>
+
+<script src="ui.js"></script>
+<script>
+  // Screen-specific: the "Overloaded" check-in reduces interface density in place.
+  const board = document.querySelector('.artboard');
+  document.querySelectorAll('[data-select]').forEach((chip) => {
+    chip.addEventListener('click', () => {
+      board.dataset.quiet = String(chip.hasAttribute('data-overload'));
+    });
+  });
+</script>
+</body>
+</html>
